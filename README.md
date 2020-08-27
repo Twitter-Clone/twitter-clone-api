@@ -21,12 +21,12 @@ Code - Programmer
 Test - QA Engineer  
 
 ### TOOLS
-Django & Python
-Digital Ocean for hosting
-Postgree for Database
-Docker
-NGINX utilization for Reverse Proxy
-Github
+Django & Python  
+Digital Ocean for hosting  
+Postgree for Database  
+Docker  
+NGINX utilization for Reverse Proxy  
+Github  
 
 ### TEAM
 Matthew Knop  

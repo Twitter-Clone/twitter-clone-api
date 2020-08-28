@@ -35,10 +35,10 @@ Ashley Hart
 Sean Strawmatt  
 
 ### MILESTONES
-1. Project Plan
-2. Server Design
-3. Database
-4. API Design
-5. Testing
-6. Frontend API Interaction
-7. UI/UX Design
+1. Project Plan Complete
+2. Technology Proven
+3. Core Features Implemented
+4. Functionality Complete
+5. Test Complete
+6. Release
+7. First Upgrade

@@ -23,7 +23,7 @@ Test - QA Engineer
 ### TOOLS
 Django & Python  
 Digital Ocean for hosting  
-Postgree for Database  
+Postgres for Database  
 Docker  
 NGINX utilization for Reverse Proxy  
 Github  

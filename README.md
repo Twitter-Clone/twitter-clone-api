@@ -5,13 +5,13 @@ microservices will be deployed from Docker containers and managed using Jenkins 
 Development. 
 
 ### Features
-[Team](https://github.com/maknop/twitter-clone-frontend#team)  
-[Micro-services](https://github.com/maknop/twitter-clone-frontend#microservices)  
-[Roles](https://github.com/maknop/twitter-clone-frontend#roles)  
-[Tools](https://github.com/maknop/twitter-clone-frontend#tools)  
-[Milestone](https://github.com/maknop/twitter-clone-frontend#milestones)  
-[Entity Relational Diagram](https://github.com/maknop/twitter-clone-frontend#entity-relational-diagram)  
-[Data Dictionary](https://github.com/maknop/twitter-clone-frontend#data-dictionary) 
+[Team](https://github.com/maknop/twitter-clone-api#team)  
+[Micro-services](https://github.com/maknop/twitter-clone-api#microservices)  
+[Roles](https://github.com/maknop/twitter-clone-api#roles)  
+[Tools](https://github.com/maknop/twitter-clone-api#tools)  
+[Milestone](https://github.com/maknop/twitter-clone-api#milestones)  
+[Entity Relational Diagram](https://github.com/maknop/twitter-clone-api#entity-relational-diagram)  
+[Data Dictionary](https://github.com/maknop/twitter-clone-api#data-dictionary) 
    
 ### Team
 [Matthew Knop](https://github.com/maknop)  

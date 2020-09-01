@@ -1,4 +1,6 @@
-# Software Project Plan - Twitter Clone ### PROJECT INFO This project will utilize two microservices which are the frontend UX/UI and the backend API development. Both  microservices will be deployed from Docker containers and managed using Jenkins for Continuous Integration/Continuous  
+# Software Project Plan - Twitter Clone 
+### PROJECT INFO 
+This project will utilize two microservices which are the frontend UX/UI and the backend API development. Both  microservices will be deployed from Docker containers and managed using Jenkins for Continuous Integration/Continuous  
 Development. 
 
 ### FEATURES

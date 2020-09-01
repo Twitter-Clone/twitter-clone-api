@@ -17,7 +17,7 @@ Development.
 [Matthew Knop](https://github.com/maknop)  
 [Doug Mellon](https://github.com/dougmellon)  
 [Ashley Hart](https://github.com/hart2533)  
-[Sean Strawmatt](https://github.com/sstrawmatt2Git) 
+[Sean Strawmatt](https://github.com/sstrawmatt2) 
 
 ### MICROSERVICES  
 https://github.com/maknop/twitter-clone-api  

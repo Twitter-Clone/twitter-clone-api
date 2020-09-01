@@ -1,3 +1,4 @@
+# Project Related
 *.egg-info
 *.pot
 *.py[co]
@@ -12,3 +13,6 @@ tests/coverage_html/
 tests/.coverage
 build/
 tests/report/
+
+# Mac
+.DS_Store

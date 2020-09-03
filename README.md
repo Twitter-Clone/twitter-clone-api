@@ -37,13 +37,13 @@ NGINX utilization for Reverse Proxy
 Github  
 
 ### MILESTONES
-1. [Project Plan Complete]()
-2. [Technology Proven]()
-3. [Core Features Implemented]()
-4. [Functionality Complete]()
-5. [Test Complete]()
-6. [Release]()
-7. [First Upgrade]()
+1. [Project Plan Complete](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Index.md
+2. [Technology Proven](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-2/Index.md
+3. [Core Features Implemented](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-3/Index.md)
+4. [Functionality Complete](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-4/Index.md
+5. [Test Complete](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-5/Index.md
+6. [Release](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-6/Index.md
+7. [First Upgrade](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-7/Index.md
 
 ### ENTITY RELATIONAL DIAGRAM 
 ![ERD](https://github.com/maknop/twitter-clone-api/blob/master/img/ERD.jpg)

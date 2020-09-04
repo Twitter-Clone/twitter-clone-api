@@ -29,3 +29,9 @@ data for a fully functioning application.
 ### Create our Server Instance
 After choosing a hosting platform, create an instance of a server on a chosen operating system. Once that is done, the  
 the application can be hosted on the server and each developer can [ssh](https://en.wikipedia.org/wiki/Secure_Shell) into the server.  
+
+### Create "Hello, World" Django App
+Since we are using the Django framework for our backend development, we added a basic "Hello, World" app that will  
+we used to mold into the requirements we will need for our application. By having something as a starting point,  
+we are able to create our separate endpoints and understand how those interfaces connect.
+

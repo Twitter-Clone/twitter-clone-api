@@ -86,6 +86,3 @@ DigitalOcean
 * AWS Lightsail (light version of AWS EC2 instances)
 
 Twitter Clone has chosen to deploy to DigitalOcean. Tutorial documents are posted in our repo as well as in our personal Discord chat.
-=======
-* Other roles - [Requirements.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Requirements.md) , [Code.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Code.md) , [Test.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Test.md)
->>>>>>> master

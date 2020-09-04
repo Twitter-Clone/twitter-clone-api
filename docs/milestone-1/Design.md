@@ -1,4 +1,8 @@
- Other Roles - [Requirements.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Requirements.md) , [Code.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Code.md) , [Test.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Test.md)
+# Milestone 1. Project Plan Complete - Design
+
+## Project Info
+* [Software Project Plan - Twitter Clone](https://github.com/maknop/twitter-clone-api)
+* Other Roles - [Requirements.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Requirements.md) , [Code.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Code.md) , [Test.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Test.md)
 * File: Milestone-1/Design.md
 * URL: https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Design.md
 * Git Repo: github.com/maknop/twitter-clone-api

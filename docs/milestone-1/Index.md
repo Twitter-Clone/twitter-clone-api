@@ -14,7 +14,11 @@ Goal: Technology selection
 
 Document: [Design.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Design.md)
 
-[ Goal list ]
+* Select Development Tools
+* Infrastructure - Frameworks & Tools
+* Setup Guide
+* Create "Hello World"
+* Decide on App deployment
 
 ### Role: Programmer - Code
 Goal: Version control

@@ -4,7 +4,10 @@ Goal: Project Charter
 
 Document: [Requirements.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Requirements.md)
 
-[ Goal list ]
+- Business proposition
+- Project scope & budget
+- Client communication
+- Sprint Planning meetings
 
 ### Role: Designer - Design
 Goal: Technology selection

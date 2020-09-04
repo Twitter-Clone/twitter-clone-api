@@ -9,7 +9,7 @@ Development.
 [Roles](https://github.com/maknop/twitter-clone-api#roles)  
 [Tools](https://github.com/maknop/twitter-clone-api#tools)  
 [Milestone](https://github.com/maknop/twitter-clone-api#milestones)  
-[User Stories](https://github.com/maknop/twitter-clone-api/blob/master/docs/UserStories.md)  
+[User Stories](https://github.com/maknop/twitter-clone-api#user-stories)  
 [Entity Relational Diagram](https://github.com/maknop/twitter-clone-api#entity-relational-diagram)  
 [Data Dictionary](https://github.com/maknop/twitter-clone-api#data-dictionary) 
    
@@ -45,6 +45,9 @@ Github
 5. [Test Complete](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-5/Index.md)
 6. [Release](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-6/Index.md)
 7. [First Upgrade](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-7/Index.md)
+
+### User Stories
+You can find our complete list of user stories [here](https://github.com/maknop/twitter-clone-api/blob/master/docs/UserStories.md).
 
 ### ENTITY RELATIONAL DIAGRAM 
 ![ERD](https://github.com/maknop/twitter-clone-api/blob/master/img/ERD.jpg)

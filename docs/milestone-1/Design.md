@@ -17,7 +17,7 @@ Goal: Technology selection
 * Decide on App deployment
 
 ## Twitter Clone - Technology selection
-The technology we have chosen will allow us to deploy from any platform and pull data from a REST API. These frees us up to decided our front-end at a later date.
+The technology we have chosen will allow us to deploy from any platform and pull data from a REST API. This approach will free us up to decided our front-end at a later date.
 
 ### Technology Alternatives
 Existing Commercial Product

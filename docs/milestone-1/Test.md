@@ -16,10 +16,13 @@ Role: QA Engineer - Test
 Goal: Test Plan
 
 Outline of testing that will be used
--Testing will be done every time we work on the project. We will be using GitHub and Python for testing services. Testing will be done essentially when the group meets. 
+1. Testing will be done every time we work on the project. We will be using GitHub and Python for testing services. Testing will be done essentially when the group meets. 
+
 Setup structure for testing
-- structure for testing will be working on our local machines, pushing up the changes that we have made, then determining if those changes still need imporvement. This process will be repeated. 
+2.structure for testing will be working on our local machines, pushing up the changes that we have made, then determining if those changes still need imporvement. This process will be repeated.
+
 Log issues
-- Each time that an issue is encountered, the team will attempt to fix the problem. Each problem that the team comes in contact with, will be documented. 
+3.Each time that an issue is encountered, the team will attempt to fix the problem. Each problem that the team comes in contact with, will be documented. 
+
 Document how to log issues
-- We will create a spreadsheet or some sharred doc that we can all contribute to, then we will go and research how to fix the issues, along with making notes as to when that issue wass completed. 
+4.  We will create a spreadsheet or some sharred doc that we can all contribute to, then we will go and research how to fix the issues, along with making notes as to when that issue wass completed. 

@@ -31,17 +31,23 @@ With SMS, users are able to interact with other users through posts known as "tw
 
 **Client**
 
-Mark Seaman of Univeristy of Northern Colorado **asked GROUP NAME** to construct an application that...
+Mark Seaman of University of Northern Colorado contacted CS350 Twitter group to construct an Twitter SMS project as a class assignment. 
 
 **User Value**
 
-**Business Value**
+Create an entertaining platform for users to connect with people and express their thoughts with a big audience. Liking and Commenting are tools available to the users. 
+
+
+**Learning Value**
+
+SMS Twitter project actively engages students to apply ideas they are learning in software engineering. This project includes milestones, rotating developer roles and the entire software lifecycle. Every two weeks students will meet up with the client a discuss further plans and ideas. 
 
 ## Project Scope & Budget
 
 ### Our Team
 
-**Development Team** 
+**Development Team**
+
 - Mark Seaman- Client representative
 - Doug Mellon- Designer
 - Matthew Knop- Programmer
@@ -55,4 +61,10 @@ The development team is required to work remotely due to Covid-19. Through Disco
 **Meeting Agenda**
 
 The Twitter SMS team members will attend weekly Discord voice meetings on T&TH at 3:30PM. The meetings run for 1 to 3 hours.
+
+
+
+### Sprint Planning meetings
+
+Every two-weeks, the development team will meet up with the clients and determine the client features with the highest priority. Features are selected by a development team member and will be included on the Product Backlog. 
 

@@ -9,6 +9,7 @@ Development.
 [Roles](https://github.com/maknop/twitter-clone-api#roles)  
 [Tools](https://github.com/maknop/twitter-clone-api#tools)  
 [Milestone](https://github.com/maknop/twitter-clone-api#milestones)  
+[User Stories](https://github.com/maknop/twitter-clone-api/blob/master/docs/UserStories.md)
 [Entity Relational Diagram](https://github.com/maknop/twitter-clone-api#entity-relational-diagram)  
 [Data Dictionary](https://github.com/maknop/twitter-clone-api#data-dictionary) 
    

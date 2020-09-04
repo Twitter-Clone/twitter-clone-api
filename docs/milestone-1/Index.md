@@ -21,12 +21,16 @@ Goal: Version control
 
 Document: [Code.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Code.md)
 
-Create Frontend & Backend Micro-service  
-Create our Server Instance  
+- Create Frontend & Backend Micro-service  
+- Create our Server Instance 
+- Create "Hello, World" Django app
 
 ### Role: QA Engineer - Test
 Goal: Test Plan
 
 Document: [Test.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-1/Test.md)
 
-[ Goal list ]
+- Outline of testing that will be used
+- Setup structure for testing
+- Log issues
+- Document how to log issues

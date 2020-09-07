@@ -1,6 +1,5 @@
 # Software Project Plan - Twitter Clone 
-![](https://img.shields.io/github/workflow/status/maknop/twitter-clone-api/Build%20API%20Container?label=container%20build)
-![](https://img.shields.io/github/workflow/status/maknop/twitter-clone-api/Test%20API%20Endpoints?label=test%20build)
+![](https://img.shields.io/github/workflow/status/maknop/twitter-clone-api/twitter-clone-api)
 
 ### PROJECT INFO 
 This project will utilize two microservices which are the frontend UX/UI and the backend API development. Both  microservices will be deployed from Docker containers and managed using Jenkins for Continuous Integration/Continuous  

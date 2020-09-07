@@ -1,4 +1,4 @@
-name: Build API Container
+name: twitter-clone-api
 
 on:
   push:

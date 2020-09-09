@@ -1,5 +1,8 @@
 FROM python:latest
 
+LABEL version="1.0"
+LABEL description="Twitter Clone API"
+
 WORKDIR /
 
 ADD . /

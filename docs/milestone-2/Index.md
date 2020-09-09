@@ -1,4 +1,4 @@
-# Milestone 2. < Milestone title >
+# Milestone 2. Technology Proven
 ### Role: Project Manager - Requirements
 Goal: < Goal of this milestone >
 

@@ -63,8 +63,31 @@ The development team is required to work remotely due to Covid-19. Through Disco
 The Twitter SMS team members will attend weekly Discord voice meetings on T&TH at 3:30PM. The meetings run for 1 to 3 hours.
 
 
-
 ### Sprint Planning meetings
 
 Every two-weeks, the development team will meet up with the clients and determine the client features with the highest priority. Features are selected by a development team member and will be included on the Product Backlog. 
 
+### Milestone #1 Team Survey
+```
+Matthew - (x/3 credits)
+    _X_ participated in team meetings
+    _X_ was cooperative -- bit on arrogant side
+    _X_ delivered contribution
+    
+Ashley - (x/3 credits)
+    _X_ participated in team meetings
+    _X_ was cooperative
+    _X_ delivered contribution
+    
+Sean - (x/3 credit)
+    _X_ participated in team meetings -- attended 2 of 6 meetings
+    _X_ was cooperative -- was very anrgy, turn green
+    _X_ delivered contribution
+    
+Doug - (x/3 credits)
+    _X_ participated in team meetings
+    _X_ was cooperative
+    _X_ delivered contribution -- failed to write design doc
+    
+* You must add a note for missing credits
+```

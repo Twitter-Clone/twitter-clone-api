@@ -71,7 +71,7 @@ Every two-weeks, the development team will meet up with the clients and determin
 ```
 Matthew - (x/3 credits)
     _X_ participated in team meetings
-    _X_ was cooperative -- bit on arrogant side
+    _X_ was cooperative
     _X_ delivered contribution
     
 Ashley - (x/3 credits)
@@ -80,14 +80,14 @@ Ashley - (x/3 credits)
     _X_ delivered contribution
     
 Sean - (x/3 credit)
-    _X_ participated in team meetings -- attended 2 of 6 meetings
-    _X_ was cooperative -- was very anrgy, turn green
+    _X_ participated in team meetings
+    _X_ was cooperative
     _X_ delivered contribution
     
 Doug - (x/3 credits)
     _X_ participated in team meetings
     _X_ was cooperative
-    _X_ delivered contribution -- failed to write design doc
+    _X_ delivered contribution
     
 * You must add a note for missing credits
 ```

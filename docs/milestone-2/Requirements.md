@@ -57,7 +57,7 @@ every day with eachother
 * what do I need help on/what's blocking me?
 
 **Daily Meetings**
-* Team meets every Tuesday and Thursday.
+* Team meets every Tuesday and Thursday, and team meetings will be recorded and found at:
 * Meetings start at 3:30 pm and can typically last for a few hours. 
 * Daily meetings are difficult with everyones schedule, but could be possibe for fifteen minutes a day. 
  

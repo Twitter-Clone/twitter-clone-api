@@ -38,16 +38,25 @@ Goal: Setup communications
 
 
 ## Twitter-clone - Setup communications
+* Team communication is the key to success for this project. The team has been using Discord to mainly communicate
+every day with eachother
 
 
 
 ### Configure communication tools
+* Discord 
 
 
 ### Team communication
 
 
 ### Plan daily meetings
+**Questions that are asked during each team meeting**
 * what did I do?
 * what will I do?
 * what do I need help on/what's blocking me?
+**Daily Meetings**
+* Team meets every Tuesday and Thursday.
+* Meetings start at 3:30 pm and can typically last for a few hours. 
+* Daily meetings are difficult to fit in with everyone's schedule. 
+* Discord is used for daily communication. 

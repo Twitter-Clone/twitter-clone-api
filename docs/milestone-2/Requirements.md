@@ -59,5 +59,5 @@ every day with eachother
 **Daily Meetings**
 * Team meets every Tuesday and Thursday.
 * Meetings start at 3:30 pm and can typically last for a few hours. 
-* Daily meetings are difficult to fit in with everyone's schedule. 
-* Discord is used for daily communication. 
+* Daily meetings are difficult with everyones schedule, but could be possibe for fifteen minutes a day. 
+ 

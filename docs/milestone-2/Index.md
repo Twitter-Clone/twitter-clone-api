@@ -10,11 +10,13 @@ Document: [Requirements.md](https://github.com/maknop/twitter-clone-api/blob/mas
 - Sprint Planning meetings
 
 ### Role: Designer - Design
-Goal: < Goal of this milestone >
+Goal: Software Architecture
 
 Document: [Design.md](https://github.com/maknop/twitter-clone-api/blob/master/docs/milestone-2/Design.md)
 
-< Sections of Document >
+- Apps = Data + Views
+- Data models
+- Views and wireframes
 
 ### Role: Programmer - Code
 Goal: < Goal of this milestone >

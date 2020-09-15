@@ -55,6 +55,7 @@ every day with eachother
 * what did I do?
 * what will I do?
 * what do I need help on/what's blocking me?
+
 **Daily Meetings**
 * Team meets every Tuesday and Thursday.
 * Meetings start at 3:30 pm and can typically last for a few hours. 

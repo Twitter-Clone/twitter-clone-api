@@ -48,3 +48,6 @@ Goal: Setup communications
 
 
 ### Plan daily meetings
+* what did I do?
+* what will I do?
+* what do I need help on/what's blocking me?

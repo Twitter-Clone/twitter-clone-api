@@ -8,7 +8,7 @@ class SimpleTests(SimpleTestCase):
         """
         GET request to our api returning a 200 status code.
         """
-        response = self.client.get('/')
+        response = self.client.get('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_get_fail(self):
@@ -22,7 +22,7 @@ class SimpleTests(SimpleTestCase):
         """
         POST request to our api returning a 200 status code.
         """
-        response = self.client.post('/')
+        response = self.client.post('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_post_fail(self):
@@ -36,7 +36,7 @@ class SimpleTests(SimpleTestCase):
         """
         PUT request to our api returning a 200 status code.
         """
-        response = self.client.put('/')
+        response = self.client.put('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_put_fail(self):
@@ -50,7 +50,7 @@ class SimpleTests(SimpleTestCase):
         """
         DELETE request to our api returning a 200 status code.
         """
-        response = self.client.delete('/')
+        response = self.client.delete('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_delete_fail(self):

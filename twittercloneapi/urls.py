@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+router = routers.DefaultRouter()
+
+# /Status
+router.register(r'/status', )
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
-urlpatterns = [
-    path('status/', admin.site.urls),
-]

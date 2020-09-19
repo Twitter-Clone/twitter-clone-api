@@ -9,13 +9,13 @@ class SimpleTests(SimpleTestCase):
         """
         GET request to our api returning a 200 status code.
         """
-        response = self.client.get('/status')
+        response = self.client.get('/status.html')
         self.assertEqual(response.status_code, 200)
 
     def test_api_get_fail(self):
         """
         GET request to our api returning a 200 status code.
         """
-        response = self.client.get('/fail')
+        response = self.client.get('/missing.html')
         self.assertNotEqual(response.status_code, 200)
 

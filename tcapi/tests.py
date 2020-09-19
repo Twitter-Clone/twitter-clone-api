@@ -1,5 +1,6 @@
 from django.test import SimpleTestCase
 
+
 class SimpleTests(SimpleTestCase):
     """
     This class tests that a connection is made to our API.
@@ -59,3 +60,4 @@ class SimpleTests(SimpleTestCase):
         """
         response = self.client.delete('/fail')
         self.assertEqual(response.status_code, 404)
+

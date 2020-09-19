@@ -31,5 +31,5 @@ class SimpleTests(SimpleTestCase):
         GET request to our api returning a 200 status code.
         """
         response = self.client.get('/missing.html')
-        self.assertNotEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 

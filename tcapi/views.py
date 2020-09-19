@@ -8,7 +8,7 @@ class PageView(TemplateView):
     TODO: Documentation
     """
     def get_template_names(self):
-        template_name = self.kwargs.get('template', 'Status.html')
+        template_name = self.kwargs.get('template', 'status.html')
         if not exists('template/' + template_name):
-            template_name = 'Missing.html'
+            template_name = 'missing.html'
         return template_name

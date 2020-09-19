@@ -51,7 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'twittercloneapi.urls'
+#ROOT_URLCONF = 'twittercloneapi.urls'
+ROOT_URLCONF = 'tcapi.urls'
 
 TEMPLATES = [
     {

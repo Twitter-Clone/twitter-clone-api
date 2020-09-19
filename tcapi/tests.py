@@ -19,45 +19,46 @@ class SimpleTests(SimpleTestCase):
         response = self.client.get('/fail')
         self.assertNotEqual(response.status_code, 200)
 
+    """
     def test_api_post_pass(self):
         """
-        POST request to our api returning a 200 status code.
+  #      POST request to our api returning a 200 status code.
         """
         response = self.client.post('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_post_fail(self):
         """
-        GET request to our api returning a 200 status code.
+  #      GET request to our api returning a 200 status code.
         """
         response = self.client.post('/fail')
         self.assertNotEqual(response.status_code, 200)
 
     def test_api_put_pass(self):
         """
-        PUT request to our api returning a 200 status code.
+  #      PUT request to our api returning a 200 status code.
         """
         response = self.client.put('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_put_fail(self):
         """
-        PUT request to our api returning a 200 status code.
+  #      PUT request to our api returning a 200 status code.
         """
         response = self.client.put('/fail')
         self.assertNotEqual(response.status_code, 200)
 
     def test_api_delete_pass(self):
         """
-        DELETE request to our api returning a 200 status code.
+  #      DELETE request to our api returning a 200 status code.
         """
         response = self.client.delete('/status')
         self.assertEqual(response.status_code, 200)
 
     def test_api_delete_fail(self):
         """
-        DELETE request to our api returning a 200 status code.
+  #      DELETE request to our api returning a 200 status code.
         """
         response = self.client.delete('/fail')
         self.assertNotEqual(response.status_code, 200)
-
+"""

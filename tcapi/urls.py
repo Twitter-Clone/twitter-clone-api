@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path
+from tcapi import views
+from django.conf.urls import url, include
 
 from .views import PageView
 
@@ -11,5 +13,6 @@ urlpatterns = [
     url(r'^api/tutorials$', views.tcapi),
     url(r'^api/tutorials/(?P<pk>[0-9]+)$', views.tcapi),
     url(r'^api/tutorials/published$', views.tcapi)
+    url(r'^', include('tcapi.urls')),
 ]
 

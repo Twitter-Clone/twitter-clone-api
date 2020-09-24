@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'twittercloneapi',
-    'tcapi'
+    'tcapi.apps.TutorialsConfig'
 ]
 
 MIDDLEWARE = [

@@ -62,6 +62,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# set CORS_ORIGIN_ALLOW_ALL and add the host to CORS_ORIGIN_WHITELIST
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8081',
+)
+
 #ROOT_URLCONF = 'twittercloneapi.urls'
 ROOT_URLCONF = 'tcapi.urls'
 

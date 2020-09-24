@@ -85,8 +85,12 @@ WSGI_APPLICATION = 'twittercloneapi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'doadmin',
+        'PASSWORD': 'ibod1y2mu7ewf5hg',
+        'HOST': 'twitter-clone-db-do-user-7047576-0.a.db.ondigitalocean.com',
+        'PORT': '25060',
     }
 }
 

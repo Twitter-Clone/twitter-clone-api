@@ -3,6 +3,7 @@ TODO: documentation
 ```
 from django.db import models
 
+<<<<<<< HEAD
 
 class Users(models.Model):
     ```
@@ -44,3 +45,7 @@ class CommentReplies(models.Model):
     # Foreign key to PostReactions table
     reactionsid = models.ForeignKey(PostReactions, on_delete=models.CASCADE)
     
+=======
+class Tcapi(models.Model):
+  
+>>>>>>> ae92381c8cdabfe2996fc2999f869b025269e99a

@@ -12,9 +12,7 @@ RUN pip3 install -r requirements.txt
 RUN python3 -m venv env
 RUN virtualenv twitter_clone
 
-#run python3 manage.py migrate \
-# && python3 manage.py createsuperuser \
-# && python3 manage.py runserver 0.0.0.0:8000
-EXPOSE 8000
+CMD ["python3", "manage.py", "migrate", "\", 
+ "&&", "python3", "manage.py", "createsuperuser", "\",
+ "&&", "python3", "manage.py", "runserver", "0.0.0.0:8000"]
 
-CMD ["python3","manage.py", "runserver", "0.0.0.0:8000"]

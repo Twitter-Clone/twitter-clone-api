@@ -14,6 +14,7 @@ tests/.coverage
 build/
 tests/report/
 venv/
+env/
 
 # Mac
 .DS_Store

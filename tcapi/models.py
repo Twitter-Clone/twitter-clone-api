@@ -23,7 +23,7 @@ class Posts(models.Model):
     # Foreign key to Users table
     userid = models.ForeignKey(Users, on_delete=models.CASCADE)
 
-class PostReactions(models.model):
+class PostReactions(models.Model):
     """
     PostReactions table
     """

@@ -11,7 +11,7 @@ class Users(models.Model):
     userid = models.IntegerField(max_length=8, blank=False, default='')
     twitterhandle = models.CharField(max_length=15, blank=False, default='')
     email = models.EmailField(max_length=254, blank=False, default='')
-    password = CharField(max_length=128, blank=False, default='') 
+    password = models.CharField(max_length=128, blank=False, default='') 
 
 class Posts(models.Model):
     """

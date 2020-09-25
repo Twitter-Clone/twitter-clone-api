@@ -32,7 +32,7 @@ class PostReactions(models.Model):
     postcomments = models.CharField(max_length=280, blank=False, default='') 
     
     # Foreign key to Posts table
-    postid = models.ForeignKey(Posts, on_delete=models.CASCASE)
+    postid = models.ForeignKey(Posts, on_delete=models.CASCADE)
 
 class CommentReplies(models.Model):
     """

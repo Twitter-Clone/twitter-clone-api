@@ -1,6 +1,3 @@
-```
-TODO: documentation
-```
 from django.db import models
 
 

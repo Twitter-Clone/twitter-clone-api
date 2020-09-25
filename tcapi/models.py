@@ -1,19 +1,22 @@
+"""
+TODO: Documentation of imports.
+"""
 from django.db import models
 
 
 class Users(models.Model):
-    ```
-    Users Table
-    ```
+    """
+    Users table
+    """
     userid = models.IntegerField(max_length=8, blank=False, default='')
     twitterhandle = models.CharField(max_length=15, blank=False, default='')
     email = models.EmailField(max_length=254, blank=False, default='')
     password = CharField(max_length=128, blank=False, default='') 
 
 class Posts(models.Model):
-    ```
-    Posts Table
-    ```
+    """
+    Posts table
+    """
     postid = models.IntegerField(max_length=8, blank=False, default='')
     tweet = models.CharField(max_length=280, blank=False, default='')
         
@@ -21,9 +24,9 @@ class Posts(models.Model):
     userid = models.ForeignKey(Users, on_delete=models.CASCADE)
 
 class PostReactions(models.model):
-    ```
-    PostsReactions
-    ```
+    """
+    PostReactions table
+    """
     reactionsid = models.IntegerField(max_length=8, blank=False, default='')
     postlikes = models.IntegerField(max_length=8, blank=False, default='') 
     postcomments = models.CharField(max_length=280, blank=False, default='') 
@@ -32,9 +35,9 @@ class PostReactions(models.model):
     postid = models.ForeignKey(Posts, on_delete=models.CASCASE)
 
 class CommentReplies(models.Model):
-    ```
-    CommentReplies Table
-    ```
+    """
+    CommentReplies table
+    """
     commentsid = models.IntegerField(max_length=8, blank=False, default='')
     postcomments = models.CharField(max_length=280, blank=False, default='')
 

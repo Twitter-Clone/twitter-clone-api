@@ -7,11 +7,11 @@ WORKDIR /
 
 ADD . /
 
-RUN pip install --upgrade pip
-RUN pip3 install -r requirements.txt
-
 RUN python3 -m venv twitter-clone-api/.venv
 RUN source twitter-clone-api/.venv/bin/activate
+
+RUN pip install --upgrade pip
+RUN pip3 install -r requirements.txt
 
 #CMD ["python3", "manage.py", "migrate", "\"", 
 # "&&", "python3", "manage.py", "createsuperuser", "\",

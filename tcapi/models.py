@@ -21,7 +21,7 @@ class Posts(models.Model):
     tweet = models.CharField(max_length=280, blank=False, default='')
         
     # Foreign key to Users table
-    userid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    userid = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class PostReactions(models.Model):
     """

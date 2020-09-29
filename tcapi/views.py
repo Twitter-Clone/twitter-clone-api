@@ -5,7 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
  
 from tcapi.models import User
-from tcapi.serializers import UserSerializer
+from tcapi.serializer import UserSerializer
 from rest_framework.decorators import api_view
 
 # @api_view(['GET', 'PUT', 'DELETE'])

@@ -4,6 +4,6 @@ from django.conf.urls import url
 
 
 urlpatterns = [
-    path('tcapi/', include('tcapi.urls')),
     path('admin/', admin.site.urls),
+    url(r'^', include('tcapi.urls'))
 ]

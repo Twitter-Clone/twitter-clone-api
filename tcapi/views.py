@@ -8,26 +8,6 @@ from tcapi.models import User
 from tcapi.serializer import UserSerializer
 from rest_framework.decorators import api_view
 
-# @api_view(['GET', 'PUT', 'DELETE'])
-# def user_list(request):
-#     # GET list of users, POST a new user, DELETE all users.
-#     if request.method == 'GET':
-#         users = User.objects.all()
-
-#         twitterhandle = request.GET.get('twitterhandle', None)
-#         if twitterhandle is not None:
-#             users = users.filter(twitterhandle__icontains=twitterhandle)
-
-#         users_serializer = UserSerializer(users, many=True)
-#         return JsonResponse(users_serializer.data, safe=False)
-
-#     elif request.method == 'POST':
-#         user_data = JSONParser().parse(request)
-#         user_serializer = UserSerializer(data=user_data)
-#         if user_serializer.is_valid():
-#             user_serializer.save()
-#             return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
-#         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST', 'DELETE'])
 def user_list(request):

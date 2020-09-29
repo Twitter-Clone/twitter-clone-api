@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
                   'twitterhandle',
                   'email',
                   'password')
-"""
+
 class PostSerializer(serializers.ModelSerializer):
     """
     #Serializer for the Post table.
@@ -44,4 +44,3 @@ class CommentRepliesSerializers(serializers.ModelSerializer):
         model = CommentReplies
         fields = ('commentsid',
                   'postcomments')
-"""

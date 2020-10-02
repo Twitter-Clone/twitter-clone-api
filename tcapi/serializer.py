@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     """
-    #Serializer for the Post table.
+    Serializer for the Post table.
     """
     class Meta:
         model = Posts
@@ -28,7 +28,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 class PostReactionsSerializers(serializers.ModelSerializer):
     """
-    #Serializer for the PostReactions table.
+    Serializer for the PostReactions table.
     """
     class Meta:
         model = PostReactions
@@ -38,7 +38,7 @@ class PostReactionsSerializers(serializers.ModelSerializer):
 
 class CommentRepliesSerializers(serializers.ModelSerializer):
     """
-    #Serializer for the CommentReplies table.
+    Serializer for the CommentReplies table.
     """
     class Meta:
         model = CommentReplies

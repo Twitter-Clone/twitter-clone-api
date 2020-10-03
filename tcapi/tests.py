@@ -25,10 +25,7 @@ class UserTableTests(TestCase):
         """
         Given an email address, return a twitterhandle.
         """
-        self.user = User.objects.create(userid="9876543", 
-                                        twitterhandle="test1", 
-                                        email="test1@test.com", 
-                                        password="PASSWORD")
+       self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         
     def test_single_users(self):
         """
@@ -36,8 +33,9 @@ class UserTableTests(TestCase):
         """
         twitterhandle = User.objects.get(twitterhandle='test1') 
 
-    def test_get_number_of_user(self):
+    def test_get_number_of_users(self):
         """
         Return a single user from the database.
         """
-        num_users = User.objects.count()
+        num_users = User.objects.count()    
+        assertEquals(num_users, 1)

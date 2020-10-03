@@ -37,5 +37,6 @@ class UserTableTests(TestCase):
         """
         Return a single user from the database.
         """
+        self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         num_users = User.objects.count()    
-        assertEqual(num_users, 1)
+        self.assertEqual(num_users, 1)

@@ -8,7 +8,7 @@ WORKDIR /
 ADD . /
 
 RUN python3 -m venv twitter-clone-env
-RUN source twitter-clone-env/bin/activate
+#RUN source twitter-clone-env/bin/activate
 
 RUN pip install --upgrade pip
 RUN pip3 install -r requirements.txt

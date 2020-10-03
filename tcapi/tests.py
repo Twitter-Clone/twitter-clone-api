@@ -40,5 +40,4 @@ class UserTableTests(TestCase):
         """
         Return a single user from the database.
         """
-        pass
-
+        num_users = User.objects.count()

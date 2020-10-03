@@ -25,9 +25,8 @@ class UserTableTests(TestCase):
         """
         Get all users stored in the database.
         """
-        users = User.objects.all() 
-        twitterhandle = User.objects.get('twitterhandle', None)
-        self.assertEqual(twitterhandle, "maknop")
+        twitterhandle = User.objects.get(twitterhandle='maknop')
+        
 
     def test_get_number_of_user(self):
         """
@@ -39,7 +38,7 @@ class UserTableTests(TestCase):
         """
         Given an email address, return a twitterhandle.
         """
-        self.user = User.objects.create(userid="9876543", 
+        self.user = User.object.create(userid="9876543", 
                                         twitterhandle="test1", 
                                         email="test1@test.com", 
                                         password="PASSWORD")

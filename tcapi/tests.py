@@ -21,6 +21,15 @@ class UserTableTests(TestCase):
     """
     This set of tests checks various areas related to the User's table.
     """
+    def test_add_user(self):
+        """
+        Given an email address, return a twitterhandle.
+        """
+        self.user = User.objects.create(userid="9876543", 
+                                        twitterhandle="test1", 
+                                        email="test1@test.com", 
+                                        password="PASSWORD")
+        
     def test_single_users(self):
         """
         Get all users stored in the database.
@@ -37,13 +46,4 @@ class UserTableTests(TestCase):
         Return a single user from the database.
         """
         pass
-
-    def test_add_user(self):
-        """
-        Given an email address, return a twitterhandle.
-        """
-        self.user = User.objects.create(userid="9876543", 
-                                        twitterhandle="test1", 
-                                        email="test1@test.com", 
-                                        password="PASSWORD")
 

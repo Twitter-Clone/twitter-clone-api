@@ -31,6 +31,7 @@ class UserTableTests(TestCase):
         """
         Get all users stored in the database.
         """
+        self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get(twitterhandle='test1') 
 
     def test_get_number_of_users(self):

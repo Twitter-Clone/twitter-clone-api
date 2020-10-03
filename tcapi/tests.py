@@ -38,4 +38,4 @@ class UserTableTests(TestCase):
         Return a single user from the database.
         """
         num_users = User.objects.count()    
-        assertEquals(num_users, 1)
+        assertEqual(num_users, 1)

@@ -25,7 +25,7 @@ class UserTableTests(TestCase):
         """
         Given an email address, return a twitterhandle.
         """
-       self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         
     def test_single_users(self):
         """

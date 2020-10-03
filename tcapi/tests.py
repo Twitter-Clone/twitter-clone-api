@@ -1,21 +1,46 @@
-from django.test import SimpleTestCase
+from django.test import TestCase
+from tcapi.models import User
+from django.test.client import Client
 
 
-class SimpleTests(SimpleTestCase):
+class StatusTests(TestCase):
     """
     This class tests that a connection is made to our API.
     """
+    def setUp(self):
+       self.client = Client()
+
     def test_api_get_pass(self):
         """
         GET request to our api returning a 200 status code.
         """
-        response = self.client.get('/index.html')
+        response = self.client.get('/api/tcapi')
         self.assertEqual(response.status_code, 200)
 
-    def test_api_get_fail(self):
+class UserTableTests(TestCase):
+    """
+    This set of tests checks various areas related to the User's table.
+    """
+    def test_single_users(self):
         """
-        GET request to our api returning a 200 status code.
+        Get all users stored in the database.
         """
-        response = self.client.get('/missing.html')
-        self.assertEqual(response.status_code, 200)
+        users = User.objects.all() 
+        twitterhandle = User.objects.get('twitterhandle', None)
+        self.assertEqual(twitterhandle, "maknop")
+
+    def test_get_number_of_user(self):
+        """
+        Return a single user from the database.
+        """
+        pass
+
+    def test_add_user(self):
+        """
+        Given an email address, return a twitterhandle.
+        """
+        self.user = User.objects.create(userid="9876543", 
+                                        twitterhandle="test1", 
+                                        email="test1@test.com", 
+                                        password="PASSWORD")
 

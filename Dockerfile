@@ -13,10 +13,10 @@ RUN python3 -m venv twitter-clone-env
 RUN pip install --upgrade pip
 RUN pip3 install -r requirements.txt
 
-#CMD ["python3", "manage.py", "migrate", "\"", 
-# "&&", "python3", "manage.py", "createsuperuser", "\",
-# "&&", "python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "manage.py", "migrate", 
+ "&&", "python3", "manage.py", "createsuperuser",
+ "&&", "python3", "manage.py", "runserver"]
 
-RUN python3 manage.py migrate \
- && python3 manage.py createsuperuser \
- && python3 manage.py runserver
+#RUN python3 manage.py migrate \
+# && python3 manage.py createsuperuser \
+# && python3 manage.py runserver

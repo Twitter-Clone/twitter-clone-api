@@ -10,9 +10,9 @@ class User(models.Model):
     email = models.EmailField(max_length=254, blank=False, default='')
     password = models.CharField(max_length=128, blank=False, default='') 
 
-class Posts(models.Model):
+class Post(models.Model):
     """
-    Posts table
+    Post table
     """
     postid = models.IntegerField(blank=False, default='')
     tweet = models.CharField(max_length=280, blank=False, default='')

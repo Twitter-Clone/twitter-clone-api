@@ -63,3 +63,13 @@ def user_detail(request, pk):
     elif request.method == 'DELETE':
         user.delete()
         return JsonResponse({'message': 'User was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+    
+@api_view(['GET', 'PUT', 'DELETE'])
+"""
+Retrieves all posts
+"""
+def post_list(request):
+    if request.method == 'GET':
+        post = Post.objects.all()
+        
+    

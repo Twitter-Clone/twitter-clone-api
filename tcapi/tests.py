@@ -45,7 +45,7 @@ class UserTableTests(TestCase):
         num_users = User.objects.count()    
         self.assertEqual(num_users, 3)
     
-    def test_delete_users(self):
+    def test_delete_user(self):
         """
         Creates and deletes all users from the database
         """

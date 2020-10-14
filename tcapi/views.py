@@ -61,3 +61,59 @@ def user_detail(request, pk):
     elif request.method == 'DELETE':
         user.delete()
         return JsonResponse({'message': 'User was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
+    
+@api_view(['GET', 'POST', 'DELETE'])
+"""
+Retrieves all posts
+"""
+def post_list(request):
+    if request.method == 'GET':
+        posts = Post.objects.all()
+        
+        tweet = request.GET.get('tweet', None)
+        if tweet is not None:
+            posts = posts.filter(tweet__icontains=tweet)
+            
+        posts_serializer = PostSerializer(posts, many=True)
+        return JsonResponse(posts_serializer.data, safe=False)
+        # 'safe=False' for objects serialization
+    
+    elif request.method == 'POST':
+        post_data = JSONParser().parse(request)
+        post_serializer = PostSerializer(data=post_data)
+        if post_serializer.is_valid():
+            post_serializer.save()
+            return JsonResponse(post_serializer.data, status=status.HTTP_201_CREATED) 
+        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        count = Post.objects.all().delete()
+        return JsonResponse({'message': '{} Posts were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+        
+@api_view(['GET', 'PUT', 'DELETE'])
+"""
+Retrieves a post by pk id
+"""
+def post_detail(request, pk):
+    # find post by pk (postid)
+    try: 
+        post = Post.objects.get(pk=pk) 
+    except Post.DoesNotExist: 
+        return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE tutorial
+    if request.method == 'GET':
+        post_serializer = PostSerializer(post)
+        return JsonResponse(post_serializer.data)
+
+    elif request.method == 'PUT':
+        post_data = JSONParser().parse(request)
+        post_serializer = PostSerializer(post, data=post_data)
+        if post_serializer.is_valid():
+            post_serializer.save()
+            return JsonResponse(post_serializer.data)
+        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    elif request.method == 'DELETE':
+        post.delete()
+        return JsonResponse({'message': 'Post was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)

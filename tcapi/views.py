@@ -63,9 +63,9 @@ def user_detail(request, pk):
         return JsonResponse({'message': 'User was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
     
 @api_view(['GET', 'POST', 'DELETE'])
-"""
-Retrieves all posts
-"""
+
+#Retrieves all posts
+
 def post_list(request):
     if request.method == 'GET':
         posts = Post.objects.all()
@@ -91,9 +91,9 @@ def post_list(request):
         return JsonResponse({'message': '{} Posts were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
         
 @api_view(['GET', 'PUT', 'DELETE'])
-"""
-Retrieves a post by pk id
-"""
+
+#Retrieves one post by pk=postid
+
 def post_detail(request, pk):
     # find post by pk (postid)
     try: 

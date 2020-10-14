@@ -92,4 +92,30 @@ def post_list(request):
         count = Post.objects.all().delete()
         return JsonResponse({'message': '{} Posts were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
         
+@api_view(['GET', 'PUT', 'DELETE'])
+"""
+Retrieves a post by pk id
+"""
+def post_detail(request, pk):
+    # find post by pk (postid)
+    try: 
+        post = Post.objects.get(pk=pk) 
+    except Post.DoesNotExist: 
+        return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE tutorial
+    if request.method == 'GET':
+        post_serializer = PostSerializer(post)
+        return JsonResponse(post_serializer.data)
+
+    elif request.method == 'PUT':
+        post_data = JSONParser().parse(request)
+        post_serializer = PostSerializer(post, data=post_data)
+        if post_serializer.is_valid():
+            post_serializer.save()
+            return JsonResponse(post_serializer.data)
+        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    elif request.method == 'DELETE':
+        post.delete()
+        return JsonResponse({'message': 'Post was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)

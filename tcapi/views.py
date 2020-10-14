@@ -70,6 +70,12 @@ Retrieves all posts
 """
 def post_list(request):
     if request.method == 'GET':
-        post = Post.objects.all()
+        posts = Post.objects.all()
         
+        tweet = request.GET.get('tweet', None)
+        if tweet is not None:
+            posts = posts.filter(tweet__icontains=tweet)
+            
+        posts_serializer = PostSerializer(posts, many=True)
+        return JsonResponse(posts_serializer.data, safe=False)
     

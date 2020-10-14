@@ -10,9 +10,8 @@ from rest_framework.decorators import api_view
 
 
 @api_view(['GET', 'POST', 'DELETE'])
-"""
-Retrieves all users
-"""
+
+## Retrieves all users
 def user_list(request):
     if request.method == 'GET':
         users = User.objects.all()
@@ -37,9 +36,8 @@ def user_list(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-"""
-Retrieves a user by pk id
-"""
+
+## Retrieves a user by pk id
 def user_detail(request, pk):
     # find user by pk (id)
     try: 

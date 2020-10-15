@@ -15,6 +15,7 @@ build/
 tests/report/
 venv/
 env/
+.venv
 
 # Mac
 .DS_Store

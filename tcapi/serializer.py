@@ -3,7 +3,7 @@ Import serializer for translating data.
 Import all models to be translated.
 """
 from rest_framework import serializers
-from tcapi.models import User, Post, PostReactions, CommentReplies
+from tcapi.models import User, Posts, PostReactions, CommentReplies
 
 class UserSerializer(serializers.ModelSerializer):
     """
@@ -21,7 +21,7 @@ class PostSerializer(serializers.ModelSerializer):
     Serializer for the Post table.
     """
     class Meta:
-        model = Post
+        model = Posts
         fields = ('postid',
                   'tweet',
                   'userid')

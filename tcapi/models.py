@@ -10,7 +10,7 @@ class User(models.Model):
     email = models.EmailField(max_length=254, blank=False, default='')
     password = models.CharField(max_length=128, blank=False, default='') 
 
-class Post(models.Model):
+class Posts(models.Model):
     """
     Post table
     """

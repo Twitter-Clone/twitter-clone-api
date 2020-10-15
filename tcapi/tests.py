@@ -1,5 +1,5 @@
 from django.test import TestCase
-from tcapi.models import User
+from tcapi.models import User, Posts
 from django.test.client import Client
 
 

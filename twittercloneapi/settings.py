@@ -65,10 +65,10 @@ MIDDLEWARE = [
 ]
 
 # set CORS_ORIGIN_ALLOW_ALL and add the host to CORS_ORIGIN_WHITELIST
-CORS_ORIGIN_ALLOW_ALL = True
-#CORS_ORIGIN_WHITELIST = (
-#    'http://localhost:8081',
-#)
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+)
 
 #ROOT_URLCONF = 'twittercloneapi.urls'
 ROOT_URLCONF = 'tcapi.urls'
@@ -94,28 +94,16 @@ WSGI_APPLICATION = 'twittercloneapi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-if os.getenv('GITHUB_WORKFLOW'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'github-actions',
-            'USER': 'postgres',
-            'PASSWORD': 'postgres',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'defaultdb',
+        'USER': 'doadmin',
+        'PASSWORD': 'ibod1y2mu7ewf5hg',
+        'HOST': 'twitter-clone-db-do-user-7047576-0.a.db.ondigitalocean.com',
+        'PORT': '25060',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'defaultdb',
-            'USER': 'doadmin',
-            'PASSWORD': 'ibod1y2mu7ewf5hg',
-            'HOST': 'twitter-clone-db-do-user-7047576-0.a.db.ondigitalocean.com',
-            'PORT': '25060',
-        }
-    }
+}
 
 
 # Password validation

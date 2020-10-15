@@ -98,8 +98,7 @@ def post_detail(request, pk):
     # find post by pk (postid)
     try: 
         post = Post.objects.get(pk=pk) 
-    except Posts.DoesNotExist: 
-        return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+    except Post.DoesNotExist: return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
     # GET / PUT / DELETE tutorial
     if request.method == 'GET':

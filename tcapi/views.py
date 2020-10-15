@@ -4,7 +4,7 @@ from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from tcapi.models import User
+from tcapi.models import User, Post
 from tcapi.serializer import UserSerializer
 from rest_framework.decorators import api_view
 
@@ -87,7 +87,7 @@ def post_list(request):
         return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     elif request.method == 'DELETE':
-        count = Posts.objects.all().delete()
+        count = Post.objects.all().delete()
         return JsonResponse({'message': '{} Posts were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
         
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -97,7 +97,7 @@ def post_list(request):
 def post_detail(request, pk):
     # find post by pk (postid)
     try: 
-        post = Posts.objects.get(pk=pk) 
+        post = Post.objects.get(pk=pk) 
     except Posts.DoesNotExist: 
         return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  

@@ -94,7 +94,10 @@ DATABASES = {
         'PASSWORD': 'ibod1y2mu7ewf5hg',
         'HOST': 'twitter-clone-db-do-user-7047576-0.a.db.ondigitalocean.com',
         'PORT': '25060',
-    }
+        'TEST': {
+            'NAME': 'testdatabase',
+        },
+    },
 }
 
 

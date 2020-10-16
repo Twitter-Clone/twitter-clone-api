@@ -8,3 +8,10 @@ class UserSerializer(serializers.ModelSerializer):
         'twitterhandle', 
         'email', 
         'password')
+
+class PostsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Posts
+        fields = ('postid',
+        'tweet',
+        'userid_id')

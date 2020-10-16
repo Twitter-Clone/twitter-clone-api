@@ -48,13 +48,13 @@ jobs:
         run: python --version
       - name: Install requirements 
         run: pip install -r requirements.txt
-      - name: Drop previous test database
-        run: dropdb 'testdatabase'
       - name: Make migrations
         run: python manage.py makemigrations
       - name: Run Migrations
         run: python manage.py migrate
       - name: Run Test 
         run: python manage.py test --noinput -v 2
+      - name: Drop previous test database
+        run: dropdb 'testdatabase'
   
 

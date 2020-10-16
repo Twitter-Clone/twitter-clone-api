@@ -17,5 +17,5 @@ pip3 install -r requirements.txt
 
 Run API server
 ```
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
 ```

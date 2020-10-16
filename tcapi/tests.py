@@ -70,8 +70,8 @@ class UserTableTests(TestCase):
         self.user3 = User.objects.create(userid="1746213", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
         twitterhandle1 = User.objects.get(email="test1@test.com")
         twitterhandle2 = User.objects.get(email="test2@test.com")
-        self.assertEqual(twitterhandle1, User.objects.get(twitterhandle="test1"))
-        self.assertEqual(twitterhandle2, User.objects.get(twitterhandle="test2"))
+        self.assertEqual(twitterhandle1, self.user)
+        self.assertEqual(twitterhandle2, self.user2)
         return str(twitterhandle1 + " " + twitterhandle2)
     
     def test_delete_users(self):
@@ -104,7 +104,8 @@ class UserTableTests(TestCase):
         """
         Creates and updates one user from the database
         """
-        self.user
+        self.user = User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        
         
 class TweetTableTests(TestCase):
     """

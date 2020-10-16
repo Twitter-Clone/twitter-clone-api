@@ -40,7 +40,7 @@ def user_detail(request, pk):
     except User.DoesNotExist: 
         return JsonResponse({'message': 'The user does not exist'}, status=status.HTTP_404_NOT_FOUND) 
  
-    # GET / PUT / DELETE tutorial
+    # GET / PUT / DELETE
     if request.method == 'GET':
         user_serializer = UserSerializer(user)
         return JsonResponse(user_serializer.data)
@@ -52,6 +52,7 @@ def user_detail(request, pk):
             user_serializer.save()
             return JsonResponse(user_serializer.data)
         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def tweet_list(request):
@@ -74,3 +75,25 @@ def tweet_list(request):
     elif request.method == 'DELETE':
         count = Posts.objects.all().delete()
         return JsonResponse({'message': '{} Posts were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def tweet_detail(request, pk):
+    # find post by pk (id)
+    try: 
+        post = Posts.objects.get(pk=pk) 
+    except Posts.DoesNotExist: 
+        return JsonResponse({'message': 'The post does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE
+    if request.method == 'GET':
+        post_serializer = PostSerializer(post)
+        return JsonResponse(post_serializer.data)
+
+    if request.method == 'PUT':
+        post_data = JSONParser().parse(request)
+        post_serializer = PostSerializer(post, data=post_data)
+        if post_serializer.is_valid():
+            post_serializer.save()
+            return JsonResponse(post_serializer.data)
+        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -25,7 +25,7 @@ class UserTableTests(TestCase):
     """
     def test_add_user(self):
         """
-        Adds a new user
+        Adds a new user to the database
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         num_users = User.objects.count()
@@ -33,7 +33,7 @@ class UserTableTests(TestCase):
         
     def test_add_users(self):
         """
-        Adds multiple users
+        Adds multiple users to the database
         """
         self.user1 = User.objects.create(userid="1357924", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         self.user2 = User.objects.create(userid="9876543", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
@@ -44,16 +44,12 @@ class UserTableTests(TestCase):
         
     def test_get_all(self):
         """
-        Get all users stored in the database.
+        Get all users from the database.
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         self.user2 = User.objects.create(userid="9879874", twitterhandle="test2", email="test1@test.com", password="PASSWORD")
         self.user3 = User.objects.create(userid="1746213", twitterhandle="test3", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get()
-        if twitterhandle is not NULL:
-            self.assertEqual(1,1)
-        else:
-            self.assertEqual(0,1)
         return str(twitterhandle)
         
     def test_get_user(self):
@@ -62,15 +58,12 @@ class UserTableTests(TestCase):
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get(twitterhandle="test1")
-        if twitterhandle is not NULL:
-            self.assertEqual(twitterhandle, User.objects.get(email="test1@test.com"))
-        else
-            self.assertEqual(0,1)
+        self.assertEqual(twitterhandle, User.objects.get(email="test1@test.com"))
         return str(twitterhandle)
         
     def test_get_users(self):
         """
-        Gets two users stored in the database, given two email addresses, return two twitterhandles
+        Gets two users from the database
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         self.user2 = User.objects.create(userid="9879874", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
@@ -107,7 +100,10 @@ class UserTableTests(TestCase):
         num_users = User.objects.count()
         self.assertEqual(num_users, 3)
         
-        
+    def test_update_user(self):
+        """
+        Creates and updates one user from the database
+        """
 class TweetTableTests(TestCase):
     """
     This set of tests checks various areas related to the User's table.

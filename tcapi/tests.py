@@ -42,7 +42,7 @@ class UserTableTests(TestCase):
         num_users = User.objects.count()    
         self.assertEqual(num_users, 3)
         
-    def test_get_users(self):
+    def test_get_all(self):
         """
         Get all users stored in the database.
         """
@@ -62,6 +62,15 @@ class UserTableTests(TestCase):
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get(twitterhandle="test1")
         self.assertEqual(twitterh, User.objects.get(email="test1@test.com"))
+        
+    def test_get_users(self):
+        """
+        Gets two users stored in the database
+        """
+        self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        self.user2 = User.objects.create(userid="9879874", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        self.user3 = User.objects.create(userid="1746213", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        twitterhandle1 = User.objects.get(
     
     def test_delete_users(self):
         """
@@ -88,6 +97,7 @@ class UserTableTests(TestCase):
         User.objects.get(twitterhandle="test1").delete()
         num_users = User.objects.count()
         self.assertEqual(num_users, 3)
+        
         
 class TweetTableTests(TestCase):
     """

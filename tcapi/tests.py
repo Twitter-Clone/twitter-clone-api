@@ -54,6 +54,7 @@ class UserTableTests(TestCase):
             self.assertEqual(1,1)
         else:
             self.assertEqual(0,1)
+        return str(twitterhandle)
         
     def test_get_user(self):
         """
@@ -61,16 +62,24 @@ class UserTableTests(TestCase):
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get(twitterhandle="test1")
-        self.assertEqual(twitterh, User.objects.get(email="test1@test.com"))
+        if twitterhandle is not NULL:
+            self.assertEqual(twitterhandle, User.objects.get(email="test1@test.com"))
+        else
+            self.assertEqual(0,1)
+        return str(twitterhandle)
         
     def test_get_users(self):
         """
-        Gets two users stored in the database
+        Gets two users stored in the database, given two email addresses, return two twitterhandles
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         self.user2 = User.objects.create(userid="9879874", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
         self.user3 = User.objects.create(userid="1746213", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
-        twitterhandle1 = User.objects.get(
+        twitterhandle1 = User.objects.get(email="test1@test.com")
+        twitterhandle2 = User.objects.get(email="test2@test.com")
+        self.assertEqual(twitterhandle1, User.objects.get(twitterhandle="test1"))
+        self.assertEqual(twitterhandle2, User.objects.get(twitterhandle="test2"))
+        return str(twitterhandle1 + " " + twitterhandle2)
     
     def test_delete_users(self):
         """

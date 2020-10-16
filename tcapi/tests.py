@@ -56,8 +56,8 @@ class UserTableTests(TestCase):
         self.user = User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
         self.user = User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
-        num_users = User.objects.count()
         User.objects.get.all().delete()
+        num_users = User.objects.count()
         self.assertEqual(num_users, 0)
         
     def test_delete_user(self):
@@ -69,6 +69,6 @@ class UserTableTests(TestCase):
         self.user = User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
         self.user = User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
-        num_users = User.objects.count()
         User.objects.get(twitterhandle="test1").delete()
+        num_users = User.objects.count()
         self.assertEqual(num_users, 3)

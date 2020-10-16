@@ -48,6 +48,8 @@ jobs:
         run: python --version
       - name: Install requirements 
         run: pip install -r requirements.txt
+      - name: Drop previous test database
+        run: dropdb 'testdatabase'
       - name: Make migrations
         run: python manage.py makemigrations
       - name: Run Migrations

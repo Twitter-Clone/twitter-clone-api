@@ -58,7 +58,7 @@ class UserTableTests(TestCase):
         """
         self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         twitterhandle = User.objects.get(twitterhandle="test1")
-        self.assertEqual(twitterhandle, User.objects.get(email="test1@test.com"))
+        self.assertEqual(twitterhandle, user)
         return str(twitterhandle)
         
     def test_get_users(self):

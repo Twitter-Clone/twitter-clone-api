@@ -27,7 +27,7 @@ class UserTableTests(TestCase):
         """
         Adds a new user to the database
         """
-        self.user = User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        User.objects.create(userid="9876543", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         num_users = User.objects.count()
         self.assertEqual(num_users, 1)
         
@@ -35,9 +35,9 @@ class UserTableTests(TestCase):
         """
         Adds multiple users to the database
         """
-        self.user1 = User.objects.create(userid="1357924", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
-        self.user2 = User.objects.create(userid="9876543", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
-        self.user3 = User.objects.create(userid="1234567", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        User.objects.create(userid="1357924", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        User.objects.create(userid="9876543", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        User.objects.create(userid="1234567", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
          
         num_users = User.objects.count()    
         self.assertEqual(num_users, 3)
@@ -91,10 +91,10 @@ class UserTableTests(TestCase):
         """
         Creates and deletes one user from the database
         """
-        self.user = User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
-        self.user = User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
-        self.user = User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
-        self.user = User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
+        self.user1 = User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        self.user2 = User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        self.user3 = User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        self.user4 = User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
         User.objects.get(twitterhandle="test1").delete()
         num_users = User.objects.count()
@@ -104,6 +104,8 @@ class UserTableTests(TestCase):
         """
         Creates and updates one user from the database
         """
+        self.user
+        
 class TweetTableTests(TestCase):
     """
     This set of tests checks various areas related to the User's table.

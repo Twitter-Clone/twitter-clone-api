@@ -91,10 +91,10 @@ class UserTableTests(TestCase):
         """
         Creates and deletes one user from the database
         """
-        self.user1 = User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
-        self.user2 = User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
-        self.user3 = User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
-        self.user4 = User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
+        User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
         User.objects.get(twitterhandle="test1").delete()
         num_users = User.objects.count()

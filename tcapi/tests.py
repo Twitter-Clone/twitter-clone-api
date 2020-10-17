@@ -88,7 +88,7 @@ class UserTableTests(TestCase):
         self.assertEqual(twitterhandle1.status_code, 302)
         self.assertEqual(twitterhandle2.status_code, 302)
         
-        return str(twitterhandle1 + " " + twitterhandle2)
+        return str(twitterhandle1 + " \n" + twitterhandle2)
     
     def test_delete_users(self):
         """

@@ -252,14 +252,54 @@ class TweetTableTests(TestCase):
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         
         response1 = Posts.objects.get(tweet="test1")
-        response2 = Posts.objects.get(tweet="test2")
+        response2 = Posts.objects.get(tweet="test3")
         
         self.assertEqual(response1.status_code, 302)
         self.assertEqual(response2.status_code, 302)
         
         return str(response1 + " \n" + response2)
     
-    def test_delete_tweets
-    
+    def test_delete_tweet(self):
+        """
+        Deletes one tweet from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        response = Posts.objects.get(tweet="test1").delete()
+        
+        num_posts = Posts.objects.count()
+        
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(num_posts, 3)
+        
+    def test_delete_all(self):
+        """
+        Deletes all tweets from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        response = Posts.objects.get().delete()
+        
+        num_posts = Posts.objects.count()
+        
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(num_posts, 0)
+        
+    def test_update_tweet(self):
+        """
+        Updates one tweet from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        new_post = Posts.objects.get()
         
         

@@ -193,7 +193,7 @@ class UserTableTests(TestCase):
         
 class TweetTableTests(TestCase):
     """
-    This set of tests checks various areas related to the User's table.
+    This set of tests checks various areas related to the Posts's table.
     """
     def test_add_tweet(self):
         """
@@ -216,6 +216,40 @@ class TweetTableTests(TestCase):
         num_tweets = Posts.object.count()
         
         self.assertEqual(num_users, 3)
+        
+    def test_get_alltweets(self):
+        """
+        Gets all tweets from the database
+        """
+        Posts.objects.create(postid="1482002", tweet="test1", userid_id="9220253")
+        Posts.objects.create(postid="1482007", tweet="test2", userid_id="9888853")
+        Posts.objects.create(postid="1425666", tweet="test3", userid_id="9123543")
+        
+        response = Posts.objects.get()
+        
+        self.assertEqual(response.status_code, 302)
+        
+    def test_get_tweet(self):
+        """
+        Gets one tweet from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        
+        response = Posts.objects.get(tweet="test2")
+        
+        self.assertEqual(response.status_code, 302)
+        
+        return str(response)
+    
+    def test_get_tweets(self):
+        """
+        Gets two tweets from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         
     
         

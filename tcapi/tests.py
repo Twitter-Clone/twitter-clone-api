@@ -259,5 +259,7 @@ class TweetTableTests(TestCase):
         
         return str(response1 + " \n" + response2)
     
+    def test_delete_tweets
+    
         
         

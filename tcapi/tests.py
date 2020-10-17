@@ -55,6 +55,8 @@ class UserTableTests(TestCase):
         
         twitterhandle = User.objects.get()
         
+        self.assertEqual(twitterhandle.status_code, 302)
+        
         return str(twitterhandle)
         
     def test_get_user(self):
@@ -65,7 +67,8 @@ class UserTableTests(TestCase):
         
         twitterhandle = User.objects.get(twitterhandle="test1")
         
-        self.assertEqual(twitterhandle, user)
+        self.assertEqual(twitterhandle, self.user)
+        self.assertEqual(twitterhandle.status_code, 302)
         
         return str(twitterhandle)
         
@@ -82,8 +85,8 @@ class UserTableTests(TestCase):
         
         self.assertEqual(twitterhandle1, self.user)
         self.assertEqual(twitterhandle2, self.user2)
-        self.assertEqual(twitterhandle1.status_code, 200)
-        self.assertEqual(twitterhandle2.status_code, 200)
+        self.assertEqual(twitterhandle1.status_code, 302)
+        self.assertEqual(twitterhandle2.status_code, 302)
         
         return str(twitterhandle1 + " " + twitterhandle2)
     
@@ -97,7 +100,9 @@ class UserTableTests(TestCase):
         User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
         response = User.objects.get.all().delete()
+        
         num_users = User.objects.count()
+        
         self.assertEqual(num_users, 0)
         self.assertEqual(response.status_code, 302)
         
@@ -124,7 +129,66 @@ class UserTableTests(TestCase):
         User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
         User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
+        new_object = User.objects.get(twitterhandle = "test2")
+        new_object.email = "myemail2test@hotmail.com"
+        new_object.save()
+        
         response = User.objects.get(twitterhandle = "test2")
+        
+        self.assertEqual(response.email, "myemail2test@hotmail.com")
+        self.assertEqual(response.status_code, 302)
+        
+    def test_update_users(self):
+        """
+        Creates and updates the email of two users from the database
+        """
+        User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
+        
+        new_object = User.objects.get(twitterhandle = "test2")
+        new_object.email = "myemail2test@hotmail.com"
+        new_object.save()
+        
+        new_object = User.objects.get(twitterhandle = "test4")
+        new_object.email = "email4me@me.com"
+        new_object.save()
+        
+        response = User.objects.get(twitterhandle = "test2")
+        response2 = User.objects.get(twitterhandle = "test4")
+        
+        self.assertEqual(response.email, "myemail2test@hotmail.com")
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response2.email, "email4me@me.com")
+        self.assertEqual(response2.status_code, 302)
+        
+    def test_update_all(self):
+        """
+        Creates and updates the password of every user from the database
+        """
+        User.objects.create(userid="1322253", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
+        User.objects.create(userid="1325110", twitterhandle="test2", email="test2@test.com", password="PASSWORD")
+        User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
+        User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
+        
+        for obj in User.objects:
+            obj.password = "PA$$WORD"
+            obj.save()
+        
+        response1 = User.objects.get(twitterhandle = "test1")
+        response2 = User.objects.get(twitterhandle = "test2")
+        response3 = User.objects.get(twitterhandle = "test3")
+        response4 = User.objects.get(twitterhandle = "test4")
+        
+        self.assertEqual(response1.password, "PA$$WORD")
+        self.assertEqual(response2.password, "PA$$WORD")
+        self.assertEqual(response3.password, "PA$$WORD")
+        self.assertEqual(response4.password, "PA$$WORD")
+        self.assertEqual(response1.status_code, 302)
+        self.assertEqual(response2.status_code, 302)
+        self.assertEqual(response3.status_code, 302)
+        self.assertEqual(response4.status_code, 302)
         
         
 class TweetTableTests(TestCase):

@@ -251,6 +251,13 @@ class TweetTableTests(TestCase):
         Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         
+        response1 = Posts.objects.get(tweet="test1")
+        response2 = Posts.objects.get(tweet="test2")
+        
+        self.assertEqual(response1.status_code, 302)
+        self.assertEqual(response2.status_code, 302)
+        
+        return str(response1 + " \n" + response2)
     
         
         

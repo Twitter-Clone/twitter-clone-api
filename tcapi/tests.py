@@ -82,6 +82,8 @@ class UserTableTests(TestCase):
         
         self.assertEqual(twitterhandle1, self.user)
         self.assertEqual(twitterhandle2, self.user2)
+        self.assertEqual(twitterhandle1.status_code, 200)
+        self.assertEqual(twitterhandle2.status_code, 200)
         
         return str(twitterhandle1 + " " + twitterhandle2)
     
@@ -122,7 +124,7 @@ class UserTableTests(TestCase):
         User.objects.create(userid="5230033", twitterhandle="test3", email="test3@test.com", password="PASSWORD")
         User.objects.create(userid="1000073", twitterhandle="test4", email="test4@test.com", password="PASSWORD")
         
-        self.user = User.objects.get(twitterhandle = "test2")
+        response = User.objects.get(twitterhandle = "test2")
         
         
 class TweetTableTests(TestCase):

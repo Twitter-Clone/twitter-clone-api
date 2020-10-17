@@ -300,6 +300,64 @@ class TweetTableTests(TestCase):
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
         
-        new_post = Posts.objects.get()
+        new_post = Posts.objects.get(postid="1481002")
+        new_post.tweet = "welcome to the jungle"
+        new_post.save()
         
+        response = Posts.objects.get(postid="1481002")
+        
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.tweet, "welcome to the jungle")
+        
+    def test_update_tweets(self):
+        """
+        Updates two tweets from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        new_post = Posts.objects.get(postid="1481002")
+        new_post.tweet = "welcome to the jungle"
+        new_post.save()
+        
+        new_post = Posts.objects.get(postid="1485402")
+        new_post.tweet = "welcome to the crew"
+        new_post.save()
+        
+        response1 = Posts.objects.get(postid="1481002")
+        response2 = Posts.objects.get(postid="1485402")
+        
+        self.assertEqual(response1.status_code, 302)
+        self.assertEqual(response1.tweet, "welcome to the jungle")
+        self.assertEqual(response2.status_code, 302)
+        self.assertEqual(response2.tweet, "welcome to the crew")
+        
+    def test_update_all(self):
+        """
+        Updates all tweets from the database
+        """
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        for obj in Posts.objects:
+            obj.tweet = "this is my tweet"
+            obj.save()
+        
+        response1 = User.objects.get(postid="1485402")
+        response2 = User.objects.get(postid="1487602")
+        response3 = User.objects.get(postid="1481002")
+        response4 = User.objects.get(postid="1999999")
+        
+        self.assertEqual(response1.status_code, 302)
+        self.assertEqual(response1.tweet, "this is my tweet")
+        self.assertEqual(response2.status_code, 302)
+        self.assertEqual(response2.tweet, "this is my tweet")
+        self.assertEqual(response1.status_code, 302)
+        self.assertEqual(response1.tweet, "this is my tweet")
+        self.assertEqual(response2.status_code, 302)
+        self.assertEqual(response2.tweet, "this is my tweet")
         

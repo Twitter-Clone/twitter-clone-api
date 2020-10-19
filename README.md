@@ -3,7 +3,7 @@
 ![](https://img.shields.io/github/issues/Twitter-Clone/twitter-clone-api)
 ![](https://img.shields.io/github/issues-closed/Twitter-Clone/twitter-clone-api)
 
-### How to run API locally
+## How to run API locally
 Start up virtual machine
 ```
 python3 -m venv env
@@ -20,7 +20,7 @@ Run API server
 python3 manage.py runserver
 ```
 
-### Deploying API on Server
+## Deploying API on Server
 Build the image with a tag
 ```
 docker build -t backend:latest .

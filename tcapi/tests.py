@@ -275,6 +275,17 @@ class TweetTableTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(num_posts, 3)
         
+    def test_delete_tweets(self):
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
+        Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
+        
+        response = Posts.objects.get(tweet="test1").delete()
+        response = Posts.objects.get(tweet="test4").delete()
+        
+        
+        
     def test_delete_all(self):
         """
         Deletes all tweets from the database
@@ -356,8 +367,8 @@ class TweetTableTests(TestCase):
         self.assertEqual(response1.tweet, "this is my tweet")
         self.assertEqual(response2.status_code, 302)
         self.assertEqual(response2.tweet, "this is my tweet")
-        self.assertEqual(response1.status_code, 302)
-        self.assertEqual(response1.tweet, "this is my tweet")
-        self.assertEqual(response2.status_code, 302)
-        self.assertEqual(response2.tweet, "this is my tweet")
+        self.assertEqual(response3.status_code, 302)
+        self.assertEqual(response3.tweet, "this is my tweet")
+        self.assertEqual(response4.status_code, 302)
+        self.assertEqual(response4.tweet, "this is my tweet")
         

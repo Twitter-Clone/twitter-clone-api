@@ -32,3 +32,4 @@ docker run -d -p 8000:8000 backend:latest
 ```
 
 Navigate to this [link](http://157.245.160.185:8000/api/posts) to see all our Twitter posts as JSON data.
+Navigate to this [link](http://157.245.160.185:8000/api/users) to see all our Twitter users as JSON data.

@@ -284,7 +284,10 @@ class TweetTableTests(TestCase):
         response = Posts.objects.get(tweet="test1").delete()
         response = Posts.objects.get(tweet="test4").delete()
         
+        num_posts = Posts.objects.count()
         
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(num_posts, 2)
         
     def test_delete_all(self):
         """

@@ -87,12 +87,12 @@ def tweet_detail(request, pk):
  
     # GET / PUT / DELETE
     if request.method == 'GET':
-        post_serializer = PostSerializer(post)
+        post_serializer = PostsSerializer(post)
         return JsonResponse(post_serializer.data)
 
     if request.method == 'PUT':
         post_data = JSONParser().parse(request)
-        post_serializer = PostSerializer(post, data=post_data)
+        post_serializer = PostsSerializer(post, data=post_data)
         if post_serializer.is_valid():
             post_serializer.save()
             return JsonResponse(post_serializer.data)

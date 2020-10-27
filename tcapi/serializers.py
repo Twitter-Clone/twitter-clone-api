@@ -5,13 +5,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('userid', 
-        'twitterhandle', 
-        'email', 
-        'password')
+                  'twitterhandle', 
+                  'email', 
+                  'password')
+
 
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
         fields = ('postid',
-        'tweet',
-        'userid_id')
+                  'tweet',
+                  'userid_id')

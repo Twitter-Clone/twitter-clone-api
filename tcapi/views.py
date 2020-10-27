@@ -4,7 +4,7 @@ from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from tcapi.models import User, Posts
+from tcapi.models import User, Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, PostsSerializer
 from rest_framework.decorators import api_view
 

@@ -16,3 +16,18 @@ class PostsSerializer(serializers.ModelSerializer):
         fields = ('postid',
                   'tweet',
                   'userid_id')
+       
+class PostReactionsSerializers(models.Model):
+    class Meta:
+        model = PostReactions
+        fields = ('reactionsid',
+                  'postlikes',
+                  'postcomments',
+                  'postid_id')
+
+class CommentRepliesSerializers(models.Model):
+    class Meta:
+        model = CommentReplies
+        fields = ('commentsid',
+                  'postcomments',
+                  'reactionsid_id')

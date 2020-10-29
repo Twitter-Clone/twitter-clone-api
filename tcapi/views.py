@@ -8,7 +8,7 @@ from tcapi.models import User, Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, PostsSerializer
 from rest_framework.decorators import api_view
 
-@api_view(['GET', 'POST', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def user_list(request):
     if request.method == 'GET':
         users = User.objects.all()
@@ -20,7 +20,7 @@ def user_list(request):
         users_serializer = UserSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)
         # 'safe=False' for objects serialization
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         user_data = JSONParser().parse(request)
         user_serializer = UserSerializer(data=user_data)
         if user_serializer.is_valid():
@@ -65,7 +65,7 @@ def tweet_list(request):
 
         posts_serializer = PostsSerializer(tweets, many=True)
         return JsonResponse(posts_serializer.data, safe=False)
-    elif request.method == 'POST':
+    elif request.method == 'PUT':
         tweets_data = JSONParser().parse(request)
         posts_serializer = PostsSerializer(data=tweets_data)
         if posts_serializer.is_valid():
@@ -97,3 +97,26 @@ def tweet_detail(request, pk):
             post_serializer.save()
             return JsonResponse(post_serializer.data)
         return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+       
+@api_view(['GET', 'PUT', 'DELETE'])
+def postreactions_list(request):
+    if request.method == 'GET':
+        reactions = PostReactions.objects.all()
+
+        reactioncomments = request.GET.get('reactioncomments', None)
+        if tweet is not None:
+            reactioncomments = reactioncomments.filter(reactioncomments__icontains=reactioncomments)
+
+        postreactions_serializer = PostReactionsSerializer(reactioncomments, many=True)
+        return JsonResponse(postreactions_serializer.data, safe=False)
+    elif request.method == 'PUT':
+        postreactions_data = JSONParser().parse(request)
+        postreactions_serializer = PostReactionsSerializer(data=tweets_data)
+        if postreactions_serializer.is_valid():
+            postreactions_serializer.save()
+            return JsonResponse(postreactions_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(postreactions_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        count = PostReactions.objects.all().delete()
+        return JsonResponse({'message': '{} Post reactions were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+

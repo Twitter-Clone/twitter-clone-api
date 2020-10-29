@@ -21,7 +21,7 @@ class StatusTests(TestCase):
 
 class UserTableTests(TestCase):
     """
-    This set of tests checks various areas related to the User's table.
+    These set of tests checks various areas related to the User's table.
     """
 
     def test_add_user(self):
@@ -349,7 +349,7 @@ class UserTableTests(TestCase):
 
 class TweetTableTests(TestCase):
     """
-    This set of tests checks various areas related to the Posts's table.
+    These set of tests checks various areas related to the Posts's table.
     """
 
     def test_add_tweet(self):

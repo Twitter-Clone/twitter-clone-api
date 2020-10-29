@@ -79,13 +79,13 @@ class UserTableTests(TestCase):
         self.user2 = User.objects.create(
             userid="9879874",
             twitterhandle="test2",
-            email="test1@test.com",
+            email="test2@test.com",
             password="PASSWORD",
         )
         self.user3 = User.objects.create(
             userid="1746213",
             twitterhandle="test3",
-            email="test1@test.com",
+            email="test3@test.com",
             password="PASSWORD",
         )
 

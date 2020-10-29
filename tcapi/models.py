@@ -10,15 +10,17 @@ class User(models.Model):
     email = models.EmailField(max_length=254, blank=False, default='')
     password = models.CharField(max_length=128, blank=False, default='') 
 
+
 class Posts(models.Model):
     """
     Posts table
     """
     postid = models.IntegerField(blank=False, default='')
     tweet = models.CharField(max_length=280, blank=False, default='')
-        
+
     # Foreign key to Users table
     userid = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class PostReactions(models.Model):
     """
@@ -26,10 +28,11 @@ class PostReactions(models.Model):
     """
     reactionsid = models.IntegerField(blank=False, default='')
     postlikes = models.IntegerField(blank=False, default='') 
-    postcomments = models.CharField(max_length=280, blank=False, default='') 
-    
+    postcomments = models.CharField(max_length=280, blank=False, default='')
+
     # Foreign key to Posts table
     postid = models.ForeignKey(Posts, on_delete=models.CASCADE)
+
 
 class CommentReplies(models.Model):
     """

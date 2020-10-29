@@ -111,7 +111,7 @@ def postreactions_list(request):
         return JsonResponse(postreactions_serializer.data, safe=False)
     elif request.method == 'PUT':
         postreactions_data = JSONParser().parse(request)
-        postreactions_serializer = PostReactionsSerializer(data=tweets_data)
+        postreactions_serializer = PostReactionsSerializer(data=postreactions_data)
         if postreactions_serializer.is_valid():
             postreactions_serializer.save()
             return JsonResponse(postreactions_serializer.data, status=status.HTTP_201_CREATED)
@@ -135,9 +135,31 @@ def postreactions_detail(request, pk):
 
     if request.method == 'PUT':
         postreaction_data = JSONParser().parse(request)
-        postreactions_serializer = PostReactionsSerializer(post, data=post_data)
+        postreactions_serializer = PostReactionsSerializer(postreaction, data=postreaction_data)
         if postreactions_serializer.is_valid():
             postreactions_serializer.save()
             return JsonResponse(postreactions_serializer.data)
         return JsonResponse(postreactions_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+       
+@api_view(['GET', 'PUT', 'DELETE'])
+def commentreplies_list(request):
+    if request.method == 'GET':
+        commentreplies = CommentReplies.objects.all()
+
+        postcomments = request.GET.get('postcomments', None)
+        if tweet is not None:
+            postcomments = postcomments.filter(postcomments__icontains=postcomments)
+
+        commentreplies_serializer = CommentRepliesSerializer(postcomments, many=True)
+        return JsonResponse(postreactions_serializer.data, safe=False)
+    elif request.method == 'PUT':
+        commentreplies_data = JSONParser().parse(request)
+        commentreplies_serializer = CommentRepliesSerializer(data=commentreplies_data)
+        if commentreplies_serializer.is_valid():
+            commentreplies_serializer.save()
+            return JsonResponse(commentreplies_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(commentreplies_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        count = CommentReplies.objects.all().delete()
+        return JsonResponse({'message': '{} Comments were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 

@@ -24,7 +24,7 @@ class PostReactionsSerializers(serializers.Model):
         model = PostReactions
         fields = ('reactionsid',
                   'postlikes',
-                  'postcomments',
+                  'reactioncomments',
                   'postid_id')
 
 

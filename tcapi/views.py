@@ -122,7 +122,7 @@ def postreactions_list(request):
       
  @api_view(['GET', 'PUT', 'DELETE'])
 def postreactions_detail(request, pk):
-    # find post by pk (id)
+    # find postreaction by pk (id)
     try: 
         postreaction = PostReactions.objects.get(pk=pk) 
     except PostReactions.DoesNotExist: 
@@ -163,3 +163,23 @@ def commentreplies_list(request):
         count = CommentReplies.objects.all().delete()
         return JsonResponse({'message': '{} Comments were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['GET', 'PUT', 'DELETE'])
+def commentreplies_detail(request, pk):
+    # find commentreplies by pk (id)
+    try: 
+        commentreply = CommentReplies.objects.get(pk=pk) 
+    except PostReactions.DoesNotExist: 
+        return JsonResponse({'message': 'The comment does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE
+    if request.method == 'GET':
+        commentreplies_serializer = CommentRepliesSerializer(commentreply)
+        return JsonResponse(commentreplies_serializer.data)
+
+    if request.method == 'PUT':
+        commentreplies_data = JSONParser().parse(request)
+        commentreplies_serializer = CommentRepliesSerializer(commentreply, data=commentreplies_data)
+        if commentreplies_serializer.is_valid():
+            commentreplies_serializer.save()
+            return JsonResponse(commentreplies_serializer.data)
+        return JsonResponse(commentreplies_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

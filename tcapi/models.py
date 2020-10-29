@@ -32,7 +32,7 @@ class PostReactions(models.Model):
 
     reactionsid = models.IntegerField(blank=False, default="")
     postlikes = models.IntegerField(blank=False, default="")
-    postcomments = models.CharField(max_length=280, blank=False, default="")
+    reactioncomments = models.CharField(max_length=280, blank=False, default="")
 
     # Foreign key to Posts table
     postid = models.ForeignKey(Posts, on_delete=models.CASCADE)

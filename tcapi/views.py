@@ -119,4 +119,25 @@ def postreactions_list(request):
     elif request.method == 'DELETE':
         count = PostReactions.objects.all().delete()
         return JsonResponse({'message': '{} Post reactions were deleted successfully!'.format(count[0])}, status=status.HTTP_204_NO_CONTENT)
+      
+ @api_view(['GET', 'PUT', 'DELETE'])
+def postreactions_detail(request, pk):
+    # find post by pk (id)
+    try: 
+        postreaction = PostReactions.objects.get(pk=pk) 
+    except PostReactions.DoesNotExist: 
+        return JsonResponse({'message': 'The post does not exist'}, status=status.HTTP_404_NOT_FOUND) 
+ 
+    # GET / PUT / DELETE
+    if request.method == 'GET':
+        postreactions_serializer = PostReactionsSerializer(postreaction)
+        return JsonResponse(postreactions_serializer.data)
+
+    if request.method == 'PUT':
+        postreaction_data = JSONParser().parse(request)
+        postreactions_serializer = PostReactionsSerializer(post, data=post_data)
+        if postreactions_serializer.is_valid():
+            postreactions_serializer.save()
+            return JsonResponse(postreactions_serializer.data)
+        return JsonResponse(postreactions_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

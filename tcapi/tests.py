@@ -1,6 +1,4 @@
 from django.test import TestCase
-
-from django.test import TestCase
 from tcapi.models import User, Posts, PostReactions, CommentReplies
 from django.test.client import Client
 

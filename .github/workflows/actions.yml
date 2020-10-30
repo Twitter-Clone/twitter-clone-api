@@ -53,7 +53,7 @@ jobs:
       - name: Run Migrations
         run: python manage.py migrate
       - name: Run Test 
-        run: python manage.py test --noinput -v 2
+        run: python manage.py test --keepdb --parallel -v 2
 
   
 

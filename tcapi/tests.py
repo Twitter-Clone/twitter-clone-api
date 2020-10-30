@@ -7,15 +7,21 @@ class StatusTests(TestCase):
     """
     This class tests that a connection is made to our API.
     """
-
     def setUp(self):
         self.client = Client()
 
-    def test_api_get_pass(self):
+    def test_users_endpoint(self):
         """
         GET request to our api returning a 200 status code.
         """
-        response = self.client.get("/api/tcapi")
+        response = self.client.get("/api/users")
+        self.assertEqual(response.status_code, 200)
+
+    def test_posts_endpoint(self):
+        """
+        GET request to our api returning a 200 status code.
+        """
+        response = self.client.get("/api/posts")
         self.assertEqual(response.status_code, 200)
 
 
@@ -356,7 +362,7 @@ class TweetTableTests(TestCase):
         """
         Adds a new tweet to the database
         """
-        Posts.objects.create(postid="1425002", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1425002", tweet="test1", userid="337282")
 
         num_tweets = Posts.objects.count()
 

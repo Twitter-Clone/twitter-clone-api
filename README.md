@@ -31,5 +31,12 @@ Run the docker image exposing port 8000
 docker run -d -p 8000:8000 backend:latest
 ```
 
+## Running Unit Tests with Django Testing
+The `--noinput` flag will force the deletion of test database and bypass any user input that may  
+be asked. `v 2` displays more detail for the test cases.
+```
+python3 manage.py test --noinput v 2
+```
+
 Navigate to this [link](http://157.245.160.185:8000/api/posts) to see all our Twitter posts as JSON data.  
 Navigate to this [link](http://157.245.160.185:8000/api/users) to see all our Twitter users as JSON data.

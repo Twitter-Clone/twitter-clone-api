@@ -310,11 +310,13 @@ class TweetTableTests(TestCase):
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1425002",
             tweet="test1",
-            userid=test_user)
+            userid=test_user,
+        )
 
         num_tweets = Posts.objects.count()
 
@@ -328,19 +330,23 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1", 
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1425002",
             tweet="test1",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1492332", 
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1482002",
             tweet="test3",
-            userid=test_user)
+            userid=test_user,
+        )
 
         num_tweets = Posts.objects.count()
 
@@ -354,19 +360,23 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1",
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1482002",
             tweet="test1",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1482007",
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1425666",
             tweet="test3",
-            userid=test_user)
+            userid=test_user,
+        )
 
         response = Posts.objects.all()
 
@@ -380,19 +390,23 @@ class TweetTableTests(TestCase):
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402", 
             tweet="test1", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
 
         response = Posts.objects.get(tweet="test2")
 
@@ -406,19 +420,23 @@ class TweetTableTests(TestCase):
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402", 
             tweet="test1", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user)
+            userid=test_user,
+        )
 
         response1 = Posts.objects.get(tweet="test1")
         response2 = Posts.objects.get(tweet="test3")
@@ -434,23 +452,28 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1", 
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402", 
             tweet="test1", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1999999", 
             tweet="test4",
-            userid=test_user)
+            userid=test_user,
+        )
 
         Posts.objects.get(tweet="test1").delete()
         num_posts = Posts.objects.count()
@@ -462,23 +485,28 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1",
             email="test1@test.com", 
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1999999", 
             tweet="test4", 
-            userid=test_user)
+            userid=test_user,
+        )
 
         Posts.objects.get(tweet="test1").delete()
         Posts.objects.get(tweet="test4").delete()
@@ -495,23 +523,28 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1", 
             email="test1@test.com",
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402", 
             tweet="test1", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1999999", 
             tweet="test4",
-            userid=test_user)
+            userid=test_user,
+        )
 
         Posts.objects.all().delete()
         num_posts = Posts.objects.count()
@@ -526,23 +559,28 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1",
             email="test1@test.com",
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402", 
             tweet="test1",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602",
             tweet="test2", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1999999", 
             tweet="test4", 
-            userid=test_user)
+            userid=test_user,
+        )
 
         new_post = Posts.objects.get(postid="1481002")
         new_post.tweet = "welcome to the jungle"
@@ -560,23 +598,28 @@ class TweetTableTests(TestCase):
             userid="337282", 
             twitterhandle="test1", 
             email="test1@test.com",
-            password="PASSWORD")
+            password="PASSWORD",
+        )
         Posts.objects.create(
             postid="1485402",
             tweet="test1", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1487602", 
             tweet="test2",
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1481002", 
             tweet="test3", 
-            userid=test_user)
+            userid=test_user,
+        )
         Posts.objects.create(
             postid="1999999", 
             tweet="test4", 
-            userid=test_user)
+            userid=test_user,
+        )
 
         new_post = Posts.objects.get(postid="1481002")
         new_post.tweet = "welcome to the jungle"
@@ -598,19 +641,23 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
         postid="1485402",
         tweet="test1", 
-        userid=test_user)
+        userid=test_user,
+        )
         Posts.objects.create(
         postid="1487602", 
         tweet="test2", 
-        userid=test_user)
+        userid=test_user,
+        )
         Posts.objects.create(
         postid="1481002", 
         tweet="test3", 
-        userid=test_user)
+        userid=test_user,
+        )
         Posts.objects.create(
         postid="1999999",
         tweet="test4",
-        userid=test_user)
+        userid=test_user,
+        )
 
         for obj in Posts:
             obj.tweet = "this is my tweet"

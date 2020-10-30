@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tcapi', '0002_commentreplies_postreactions_posts'),
+        ("tcapi", "0002_commentreplies_postreactions_posts"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='commentreplies',
-            name='commentsid',
-            field=models.IntegerField(default=''),
+            model_name="commentreplies",
+            name="commentsid",
+            field=models.IntegerField(default=""),
         ),
         migrations.AlterField(
-            model_name='postreactions',
-            name='postlikes',
-            field=models.IntegerField(default=''),
+            model_name="postreactions",
+            name="postlikes",
+            field=models.IntegerField(default=""),
         ),
         migrations.AlterField(
-            model_name='postreactions',
-            name='reactionsid',
-            field=models.IntegerField(default=''),
+            model_name="postreactions",
+            name="reactionsid",
+            field=models.IntegerField(default=""),
         ),
         migrations.AlterField(
-            model_name='posts',
-            name='postid',
-            field=models.IntegerField(default=''),
+            model_name="posts",
+            name="postid",
+            field=models.IntegerField(default=""),
         ),
         migrations.AlterField(
-            model_name='user',
-            name='userid',
-            field=models.IntegerField(default=''),
+            model_name="user",
+            name="userid",
+            field=models.IntegerField(default=""),
         ),
     ]

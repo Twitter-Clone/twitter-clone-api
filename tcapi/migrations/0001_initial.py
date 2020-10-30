@@ -7,18 +7,25 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('userid', models.IntegerField(default='', max_length=8)),
-                ('twitterhandle', models.CharField(default='', max_length=15)),
-                ('email', models.EmailField(default='', max_length=254)),
-                ('password', models.CharField(default='', max_length=128)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("userid", models.IntegerField(default="", max_length=8)),
+                ("twitterhandle", models.CharField(default="", max_length=15)),
+                ("email", models.EmailField(default="", max_length=254)),
+                ("password", models.CharField(default="", max_length=128)),
             ],
         ),
     ]

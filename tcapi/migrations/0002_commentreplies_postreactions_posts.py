@@ -7,36 +7,76 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tcapi', '0001_initial'),
+        ("tcapi", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Posts',
+            name="Posts",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('postid', models.IntegerField(default='', max_length=8)),
-                ('tweet', models.CharField(default='', max_length=280)),
-                ('userid', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tcapi.user')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("postid", models.IntegerField(default="", max_length=8)),
+                ("tweet", models.CharField(default="", max_length=280)),
+                (
+                    "userid",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="tcapi.user"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='PostReactions',
+            name="PostReactions",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('reactionsid', models.IntegerField(default='', max_length=8)),
-                ('postlikes', models.IntegerField(default='', max_length=8)),
-                ('postcomments', models.CharField(default='', max_length=280)),
-                ('postid', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tcapi.posts')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("reactionsid", models.IntegerField(default="", max_length=8)),
+                ("postlikes", models.IntegerField(default="", max_length=8)),
+                ("postcomments", models.CharField(default="", max_length=280)),
+                (
+                    "postid",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE, to="tcapi.posts"
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='CommentReplies',
+            name="CommentReplies",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('commentsid', models.IntegerField(default='', max_length=8)),
-                ('postcomments', models.CharField(default='', max_length=280)),
-                ('reactionsid', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tcapi.postreactions')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("commentsid", models.IntegerField(default="", max_length=8)),
+                ("postcomments", models.CharField(default="", max_length=280)),
+                (
+                    "reactionsid",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="tcapi.postreactions",
+                    ),
+                ),
             ],
         ),
     ]

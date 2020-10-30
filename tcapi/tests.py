@@ -7,6 +7,7 @@ class StatusTests(TestCase):
     """
     This class tests that a connection is made to our API.
     """
+
     def setUp(self):
         self.client = Client()
 
@@ -302,6 +303,7 @@ class TweetTableTests(TestCase):
     """
     These set of tests checks various areas related to the Posts's table.
     """
+
     def test_add_tweet(self):
         """
         Adds a new tweet to the database
@@ -309,7 +311,7 @@ class TweetTableTests(TestCase):
         test_user = User.objects.create(
             userid="337282",
             twitterhandle="test1",
-            email="test1@test.com", 
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
@@ -327,9 +329,9 @@ class TweetTableTests(TestCase):
         Adds three new tweets to the database
         """
         test_user = User.objects.create(
-            userid="337282", 
-            twitterhandle="test1", 
-            email="test1@test.com", 
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
@@ -338,8 +340,8 @@ class TweetTableTests(TestCase):
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1492332", 
-            tweet="test2", 
+            postid="1492332",
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
@@ -357,9 +359,9 @@ class TweetTableTests(TestCase):
         Gets all tweets from the database
         """
         test_user = User.objects.create(
-            userid="337282", 
+            userid="337282",
             twitterhandle="test1",
-            email="test1@test.com", 
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
@@ -369,7 +371,7 @@ class TweetTableTests(TestCase):
         )
         Posts.objects.create(
             postid="1482007",
-            tweet="test2", 
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
@@ -393,18 +395,18 @@ class TweetTableTests(TestCase):
             password="PASSWORD",
         )
         Posts.objects.create(
-            postid="1485402", 
-            tweet="test1", 
+            postid="1485402",
+            tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
-            tweet="test2", 
+            postid="1487602",
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
 
@@ -419,17 +421,17 @@ class TweetTableTests(TestCase):
         test_user = User.objects.create(
             userid="337282",
             twitterhandle="test1",
-            email="test1@test.com", 
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
-            postid="1485402", 
-            tweet="test1", 
+            postid="1485402",
+            tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
-            tweet="test2", 
+            postid="1487602",
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
@@ -449,28 +451,28 @@ class TweetTableTests(TestCase):
         Deletes one tweet from the database
         """
         test_user = User.objects.create(
-            userid="337282", 
-            twitterhandle="test1", 
-            email="test1@test.com", 
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
-            postid="1485402", 
-            tweet="test1", 
+            postid="1485402",
+            tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
+            postid="1487602",
             tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1999999", 
+            postid="1999999",
             tweet="test4",
             userid=test_user,
         )
@@ -482,9 +484,9 @@ class TweetTableTests(TestCase):
 
     def test_delete_tweets(self):
         test_user = User.objects.create(
-            userid="337282", 
+            userid="337282",
             twitterhandle="test1",
-            email="test1@test.com", 
+            email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
@@ -493,18 +495,18 @@ class TweetTableTests(TestCase):
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
-            tweet="test2", 
+            postid="1487602",
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1999999", 
-            tweet="test4", 
+            postid="1999999",
+            tweet="test4",
             userid=test_user,
         )
 
@@ -520,28 +522,28 @@ class TweetTableTests(TestCase):
         Deletes all tweets from the database
         """
         test_user = User.objects.create(
-            userid="337282", 
-            twitterhandle="test1", 
+            userid="337282",
+            twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
-            postid="1485402", 
-            tweet="test1", 
+            postid="1485402",
+            tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
-            tweet="test2", 
+            postid="1487602",
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1999999", 
+            postid="1999999",
             tweet="test4",
             userid=test_user,
         )
@@ -556,29 +558,29 @@ class TweetTableTests(TestCase):
         Updates one tweet from the database
         """
         test_user = User.objects.create(
-            userid="337282", 
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
-            postid="1485402", 
+            postid="1485402",
             tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
             postid="1487602",
-            tweet="test2", 
+            tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1999999", 
-            tweet="test4", 
+            postid="1999999",
+            tweet="test4",
             userid=test_user,
         )
 
@@ -595,29 +597,29 @@ class TweetTableTests(TestCase):
         Updates two tweets from the database
         """
         test_user = User.objects.create(
-            userid="337282", 
-            twitterhandle="test1", 
+            userid="337282",
+            twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
         )
         Posts.objects.create(
             postid="1485402",
-            tweet="test1", 
+            tweet="test1",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1487602", 
+            postid="1487602",
             tweet="test2",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1481002", 
-            tweet="test3", 
+            postid="1481002",
+            tweet="test3",
             userid=test_user,
         )
         Posts.objects.create(
-            postid="1999999", 
-            tweet="test4", 
+            postid="1999999",
+            tweet="test4",
             userid=test_user,
         )
 
@@ -637,20 +639,19 @@ class TweetTableTests(TestCase):
 
     """
     def test_update_all(self):
-        test_user = User.objects.create(userid="337282", twitterhandle="test1", email="test1@test.com", password="PASSWORD")
         Posts.objects.create(
         postid="1485402",
-        tweet="test1", 
+        tweet="test1",
         userid=test_user,
         )
         Posts.objects.create(
-        postid="1487602", 
-        tweet="test2", 
+        postid="1487602",
+        tweet="test2",
         userid=test_user,
         )
         Posts.objects.create(
-        postid="1481002", 
-        tweet="test3", 
+        postid="1481002",
+        tweet="test3",
         userid=test_user,
         )
         Posts.objects.create(
@@ -676,7 +677,7 @@ class TweetTableTests(TestCase):
         self.assertEqual(response3.tweet, "this is my tweet")
         self.assertEqual(response4.status_code, 302)
         self.assertEqual(response4.tweet, "this is my tweet")
-    
+
     def test_update_all(self):
         User.objects.create(
             userid="337282",

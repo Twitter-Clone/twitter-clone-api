@@ -54,7 +54,6 @@ jobs:
         run: python manage.py migrate
       - name: Run Test 
         run: python manage.py test --noinput -v 2
-      - name: Drop previous test database
-        run: dropdb 'testdatabase'
+
   
 

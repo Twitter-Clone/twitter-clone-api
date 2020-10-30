@@ -14,13 +14,13 @@ class PostsSerializer(serializers.ModelSerializer):
         fields = ("postid", "tweet", "userid_id")
 
 
-class PostReactionsSerializers(serializers.Model):
+class PostReactionsSerializers(serializers.ModelSerializer):
     class Meta:
         model = PostReactions
         fields = ("reactionsid", "postlikes", "reactioncomments", "postid_id")
 
 
-class CommentRepliesSerializers(serializers.Model):
+class CommentRepliesSerializers(serializers.ModelSerializer):
     class Meta:
         model = CommentReplies
         fields = ("commentsid", "postcomments", "reactionsid_id")

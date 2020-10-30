@@ -151,7 +151,7 @@ class UserTableTests(TestCase):
         Creates and deletes all users from the database
         """
         User.objects.create(
-            userid="1322253",
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
@@ -187,7 +187,7 @@ class UserTableTests(TestCase):
         Creates and deletes one user from the database
         """
         User.objects.create(
-            userid="1322253",
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
@@ -221,7 +221,7 @@ class UserTableTests(TestCase):
         Creates and updates the email of one user from the database
         """
         User.objects.create(
-            userid="1322253",
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
@@ -259,7 +259,7 @@ class UserTableTests(TestCase):
         Creates and updates the email of two users from the database
         """
         User.objects.create(
-            userid="1322253",
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
@@ -304,7 +304,7 @@ class UserTableTests(TestCase):
         Creates and updates the password of every user from the database
         """
         User.objects.create(
-            userid="1322253",
+            userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
@@ -356,7 +356,7 @@ class TweetTableTests(TestCase):
         """
         Adds a new tweet to the database
         """
-        Posts.objects.create(postid="1425002", tweet="test1", userid_id="1322253")
+        Posts.objects.create(postid="1425002", tweet="test1", userid_id="337282")
 
         num_tweets = Posts.objects.count()
 
@@ -366,11 +366,11 @@ class TweetTableTests(TestCase):
         """
         Adds three new tweets to the database
         """
-        Posts.objects.create(postid="1425002", tweet="test1", userid_id="1322253")
+        Posts.objects.create(postid="1425002", tweet="test1", userid_id="337282")
         Posts.objects.create(postid="1492332", tweet="test2", userid_id="1374553")
-        Posts.objects.create(postid="1482002", tweet="test3", userid_id="9220253")
+        Posts.objects.create(postid="1482002", tweet="test3", userid_id="337282")
 
-        num_tweets = Posts.object.count()
+        num_tweets = Posts.objects.count()
 
         self.assertEqual(num_tweets, 3)
 
@@ -378,7 +378,7 @@ class TweetTableTests(TestCase):
         """
         Gets all tweets from the database
         """
-        Posts.objects.create(postid="1482002", tweet="test1", userid_id="9220253")
+        Posts.objects.create(postid="1482002", tweet="test1", userid_id="337282")
         Posts.objects.create(postid="1482007", tweet="test2", userid_id="9888853")
         Posts.objects.create(postid="1425666", tweet="test3", userid_id="9123543")
 
@@ -390,8 +390,8 @@ class TweetTableTests(TestCase):
         """
         Gets one tweet from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
 
         response = Posts.objects.get(tweet="test2")
@@ -404,8 +404,8 @@ class TweetTableTests(TestCase):
         """
         Gets two tweets from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
 
         response1 = Posts.objects.get(tweet="test1")
@@ -420,8 +420,8 @@ class TweetTableTests(TestCase):
         """
         Deletes one tweet from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 
@@ -433,8 +433,8 @@ class TweetTableTests(TestCase):
         self.assertEqual(num_posts, 3)
 
     def test_delete_tweets(self):
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 
@@ -450,8 +450,8 @@ class TweetTableTests(TestCase):
         """
         Deletes all tweets from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 
@@ -466,8 +466,8 @@ class TweetTableTests(TestCase):
         """
         Updates one tweet from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 
@@ -484,8 +484,8 @@ class TweetTableTests(TestCase):
         """
         Updates two tweets from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 
@@ -509,8 +509,8 @@ class TweetTableTests(TestCase):
         """
         Updates all tweets from the database
         """
-        Posts.objects.create(postid="1485402", tweet="test1", userid_id="9562253")
-        Posts.objects.create(postid="1487602", tweet="test2", userid_id="9981253")
+        Posts.objects.create(postid="1485402", tweet="test1", userid_id="337282")
+        Posts.objects.create(postid="1487602", tweet="test2", userid_id="337282")
         Posts.objects.create(postid="1481002", tweet="test3", userid_id="9000253")
         Posts.objects.create(postid="1999999", tweet="test4", userid_id="9111111")
 

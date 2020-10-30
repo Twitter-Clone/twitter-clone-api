@@ -362,7 +362,7 @@ class TweetTableTests(TestCase):
         """
         Adds a new tweet to the database
         """
-        Posts.objects.create(postid="1425002", tweet="test1", userid="337282")
+        Posts.objects.create(postid="1425002", tweet="test1")
 
         num_tweets = Posts.objects.count()
 

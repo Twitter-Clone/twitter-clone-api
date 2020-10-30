@@ -20,7 +20,7 @@ class PostReactionsSerializers(serializers.ModelSerializer):
         fields = ("reactionsid", "postlikes", "reactioncomments", "postid_id")
 
 
-class CommentRepliesSerializers(serializers.ModelSerializer):
+class CommentRepliesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CommentReplies
         fields = ("commentsid", "postcomments", "reactionsid_id")

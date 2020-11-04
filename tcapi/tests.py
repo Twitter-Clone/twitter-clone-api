@@ -1,5 +1,8 @@
+"""
+TODO: Import documentation
+"""
 from django.test import TestCase
-from tcapi.models import User, Posts, PostReactions, CommentReplies
+from tcapi.models import User, Posts #, PostReactions, CommentReplies
 from django.test.client import Client
 
 
@@ -77,25 +80,6 @@ class UserTableTests(TestCase):
         """
         Get all users from the database.
         """
-        self.user = User.objects.create(
-            userid="9876543",
-            twitterhandle="test1",
-            email="test1@test.com",
-            password="PASSWORD",
-        )
-        self.user2 = User.objects.create(
-            userid="9879874",
-            twitterhandle="test2",
-            email="test2@test.com",
-            password="PASSWORD",
-        )
-        self.user3 = User.objects.create(
-            userid="1746213",
-            twitterhandle="test3",
-            email="test3@test.com",
-            password="PASSWORD",
-        )
-
         twitterhandle = User.objects.all()
 
         self.assertEqual(len(twitterhandle), 3)
@@ -108,7 +92,7 @@ class UserTableTests(TestCase):
         """
         Given an email address, return a twitterhandle.
         """
-        self.user = User.objects.create(
+        user = User.objects.create(
             userid="9876543",
             twitterhandle="test1",
             email="test1@test.com",
@@ -117,7 +101,7 @@ class UserTableTests(TestCase):
 
         twitterhandle = User.objects.get(twitterhandle="test1")
 
-        self.assertEqual(twitterhandle, self.user)
+        self.assertEqual(twitterhandle, user)
 
         return str(twitterhandle)
 
@@ -125,30 +109,24 @@ class UserTableTests(TestCase):
         """
         Gets two users from the database
         """
-        self.user = User.objects.create(
+        user = User.objects.create(
             userid="9876543",
             twitterhandle="test1",
             email="test1@test.com",
             password="PASSWORD",
         )
-        self.user2 = User.objects.create(
+        user2 = User.objects.create(
             userid="9879874",
             twitterhandle="test2",
             email="test2@test.com",
-            password="PASSWORD",
-        )
-        self.user3 = User.objects.create(
-            userid="1746213",
-            twitterhandle="test3",
-            email="test3@test.com",
             password="PASSWORD",
         )
 
         twitterhandle1 = User.objects.get(email="test1@test.com")
         twitterhandle2 = User.objects.get(email="test2@test.com")
 
-        self.assertEqual(twitterhandle1, self.user)
-        self.assertEqual(twitterhandle2, self.user2)
+        self.assertEqual(twitterhandle1, user)
+        self.assertEqual(twitterhandle2, user2)
 
     def test_delete_users(self):
         """

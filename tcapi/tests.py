@@ -282,6 +282,14 @@ class TweetTableTests(TestCase):
     These set of tests checks various areas related to the Posts's table.
     """
 
+    def test_tweet_by_user(self):
+        User.objects.create(
+            userid="5230033",
+            twitterhandle="test3",
+            email="test3@test.com",
+            password="PASSWORD",
+        )
+
     def test_add_tweet(self):
         """
         Adds a new tweet to the database

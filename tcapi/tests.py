@@ -703,4 +703,6 @@ class TweetTableTests(TestCase):
         self.assertEqual(response2.password, "PA$$WORD")
         self.assertEqual(response3.password, "PA$$WORD")
         self.assertEqual(response4.password, "PA$$WORD")
+
+        
     """

@@ -2,7 +2,7 @@
 TODO: Import documentation
 """
 from django.test import TestCase
-from tcapi.models import User, Posts #, PostReactions, CommentReplies
+from tcapi.models import User, Posts, PostReactions# CommentReplies
 from django.test.client import Client
 
 
@@ -80,13 +80,31 @@ class UserTableTests(TestCase):
         """
         Get all users from the database.
         """
-        twitterhandle = User.objects.all()
+        User.objects.create(
+            userid="1357924",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        User.objects.create(
+            userid="9876543",
+            twitterhandle="test2",
+            email="test2@test.com",
+            password="PASSWORD",
+        )
+        User.objects.create(
+            userid="1234567",
+            twitterhandle="test3",
+            email="test3@test.com",
+            password="PASSWORD",
+        )
+        response = User.objects.all()
 
-        self.assertEqual(len(twitterhandle), 3)
+        self.assertEqual(len(response), 3)
 
-        # self.assertEqual(twitterhandle.status_code, 302)
+        # self.assertEqual(response.status_code, 302)
 
-        return str(twitterhandle)
+        return str(response)
 
     def test_get_user(self):
         """
@@ -294,7 +312,7 @@ class TweetTableTests(TestCase):
         """
         Adds a new tweet to the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -303,7 +321,7 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1425002",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
 
         num_tweets = Posts.objects.count()
@@ -314,7 +332,7 @@ class TweetTableTests(TestCase):
         """
         Adds three new tweets to the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -323,17 +341,17 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1425002",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1492332",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1482002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
 
         num_tweets = Posts.objects.count()
@@ -344,7 +362,7 @@ class TweetTableTests(TestCase):
         """
         Gets all tweets from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -353,17 +371,17 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1482002",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1482007",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1425666",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
 
         response = Posts.objects.all()
@@ -374,7 +392,7 @@ class TweetTableTests(TestCase):
         """
         Gets one tweet from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -383,17 +401,17 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
 
         response = Posts.objects.get(tweet="test2")
@@ -404,7 +422,7 @@ class TweetTableTests(TestCase):
         """
         Gets two tweets from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -413,17 +431,17 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
 
         response1 = Posts.objects.get(tweet="test1")
@@ -436,7 +454,7 @@ class TweetTableTests(TestCase):
         """
         Deletes one tweet from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -445,22 +463,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1999999",
             tweet="test4",
-            userid=test_user,
+            userid="337282",
         )
 
         Posts.objects.get(tweet="test1").delete()
@@ -469,7 +487,7 @@ class TweetTableTests(TestCase):
         self.assertEqual(num_posts, 3)
 
     def test_delete_tweets(self):
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -478,22 +496,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1999999",
             tweet="test4",
-            userid=test_user,
+            userid="337282",
         )
 
         Posts.objects.get(tweet="test1").delete()
@@ -507,7 +525,7 @@ class TweetTableTests(TestCase):
         """
         Deletes all tweets from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -516,22 +534,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1999999",
             tweet="test4",
-            userid=test_user,
+            userid="337282",
         )
 
         Posts.objects.all().delete()
@@ -543,7 +561,7 @@ class TweetTableTests(TestCase):
         """
         Updates one tweet from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -552,22 +570,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1999999",
             tweet="test4",
-            userid=test_user,
+            userid="337282",
         )
 
         new_post = Posts.objects.get(postid="1481002")
@@ -582,7 +600,7 @@ class TweetTableTests(TestCase):
         """
         Updates two tweets from the database
         """
-        test_user = User.objects.create(
+        User.objects.create(
             userid="337282",
             twitterhandle="test1",
             email="test1@test.com",
@@ -591,22 +609,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
             postid="1485402",
             tweet="test1",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1487602",
             tweet="test2",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1481002",
             tweet="test3",
-            userid=test_user,
+            userid="337282",
         )
         Posts.objects.create(
             postid="1999999",
             tweet="test4",
-            userid=test_user,
+            userid="337282",
         )
 
         new_post = Posts.objects.get(postid="1481002")
@@ -628,22 +646,22 @@ class TweetTableTests(TestCase):
         Posts.objects.create(
         postid="1485402",
         tweet="test1",
-        userid=test_user,
+        userid="337282",
         )
         Posts.objects.create(
         postid="1487602",
         tweet="test2",
-        userid=test_user,
+        userid="337282",
         )
         Posts.objects.create(
         postid="1481002",
         tweet="test3",
-        userid=test_user,
+        userid="337282",
         )
         Posts.objects.create(
         postid="1999999",
         tweet="test4",
-        userid=test_user,
+        userid="337282",
         )
 
         for obj in Posts:
@@ -706,3 +724,366 @@ class TweetTableTests(TestCase):
 
         
     """
+class PostReactionsTableTests(TestCase):
+    """
+    These set of tests checks various areas related to the PostReactions's table.
+    """
+
+    def test_add_reaction(self):
+        """
+        Adds a new user to the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="9876543",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+
+        num_postreactions = PostReactions.objects.count()
+
+        self.assertEqual(num_postreactions, 1)
+
+    def test_add_postreactions(self):
+        """
+        Adds multiple postreactions to the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="1357924",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="9876543",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1234567",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+
+        num_postreactions = PostReactions.objects.count()
+
+        self.assertEqual(num_postreactions, 3)
+
+    def test_get_all(self):
+        """
+        Get all postreactions from the database.
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="1357924",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="9876543",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1234567",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+        postreactions = PostReactions.objects.all()
+
+        self.assertEqual(len(postreactions), 3)
+
+        # self.assertEqual(postreactions.status_code, 302)
+
+        return str(postreactions)
+
+    def test_get_postreaction(self):
+        """
+        Given amount of postlikes, return postreaction object.
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        postreactions1 = PostReactions.objects.create(
+            reactionsid="9876543",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+
+        postreactions = PostReactions.objects.get(postlikes="300")
+
+        self.assertEqual(postreactions, postreactions1)
+
+        return str(postreactions)
+
+    def test_get_postreactions(self):
+        """
+        Gets two postreactions from the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        postreactions = PostReactions.objects.create(
+            reactionsid="9876543",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        postreactions2 = PostReactions.objects.create(
+            reactionsid="9879874",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+
+        reactioncomments1 = PostReactions.objects.get(reactioncomments="300")
+        reactioncomments2 = PostReactions.objects.get(reactioncomments="425")
+
+        self.assertEqual(reactioncomments1, postreactions)
+        self.assertEqual(reactioncomments2, postreactions2)
+
+    def test_delete_postreactions(self):
+        """
+        Creates and deletes all postreactions from the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="337282",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1325110",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="5230033",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1000073",
+            postlikes="NULL",
+            reactioncomments="NULL",
+            postid_id="9876543",
+        )
+
+        PostReactions.objects.all().delete()
+
+        num_postreactions = PostReactions.objects.count()
+
+        self.assertEqual(num_postreactions, 0)
+
+    def test_delete_postreaction(self):
+        """
+        Creates and deletes one postreaction from the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="337282",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1325110",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="5230033",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1000073",
+            postlikes="NULL",
+            reactioncomments="NULL",
+            postid_id="9876543",
+        )
+
+        PostReactions.objects.get(postlikes="300").delete()
+        num_postreactions = PostReactions.objects.count()
+        self.assertEqual(num_postreactions, 3)
+
+    def test_update_user(self):
+        """
+        Creates and updates the reactioncomments of one user from the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="337282",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1325110",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="5230033",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1000073",
+            postlikes="NULL",
+            reactioncomments="NULL",
+            postid_id="9876543",
+        )
+
+        new_object = PostReactions.objects.get(reactionsid="1325110")
+        new_object.reactioncomments = "522"
+        new_object.save()
+
+        response = PostReactions.objects.get(reactionsid="1325110")
+
+        self.assertEqual(response.reactioncomments, "522")
+
+    def test_update_postreactions(self):
+        """
+        Creates and updates the reactioncomments of two postreactions from the database
+        """
+        User.objects.create(
+            userid="337282",
+            twitterhandle="test1",
+            email="test1@test.com",
+            password="PASSWORD",
+        )
+        Posts.objects.create(
+            postid="9876543",
+            tweet="test1",
+            userid="337282",
+        )
+        PostReactions.objects.create(
+            reactionsid="3372821",
+            postlikes="300",
+            reactioncomments="300",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1325110",
+            postlikes="425",
+            reactioncomments="425",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="5230033",
+            postlikes="25",
+            reactioncomments="25",
+            postid_id="9876543",
+        )
+        PostReactions.objects.create(
+            reactionsid="1000073",
+            postlikes="NULL",
+            reactioncomments="NULL",
+            postid_id="9876543",
+        )
+
+        new_object = PostReactions.objects.get(reactionsid="3372821")
+        new_object.reactioncomments = "310"
+        new_object.save()
+
+        new_object = PostReactions.objects.get(reactionsid="1000073")
+        new_object.reactioncomments = "542"
+        new_object.save()
+
+        response = PostReactions.objects.get(reactionsid="3372821")
+        response2 = PostReactions.objects.get(postlikes="NULL")
+
+        self.assertEqual(response.reactioncomments, "310")
+        self.assertEqual(response2.reactioncomments, "542")

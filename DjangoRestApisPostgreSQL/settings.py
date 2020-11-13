@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'tcapi.apps.TcapiConfig',
     'corsheaders',
-    'core.apps.CoreConfig'
 ]
 
 MIDDLEWARE = [
@@ -57,12 +56,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
+    'django.middleware.common.CommonMiddleware', 
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:8081',
-# )
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3001',
+)
 
 ROOT_URLCONF = 'DjangoRestApisPostgreSQL.urls'
 
@@ -151,3 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'tcapi.utils.my_jwt_response_handler'
+}

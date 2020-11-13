@@ -11,16 +11,16 @@ class UserSerializer(serializers.ModelSerializer):
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
-        fields = ("postid", "tweet", "userid_id")
+        fields = ("postid", "tweet", "userid")
 
 
 class PostReactionsSerializers(serializers.ModelSerializer):
     class Meta:
         model = PostReactions
-        fields = ("reactionsid", "postlikes", "reactioncomments", "postid_id")
+        fields = ("reactionsid", "postlikes", "reactioncomments", "postid")
 
 
 class CommentRepliesSerializer(serializers.ModelSerializer):
     class Meta:
         model = CommentReplies
-        fields = ("commentsid", "postcomments", "reactionsid_id")
+        fields = ("commentsid", "postcomments", "reactionsid")

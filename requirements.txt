@@ -13,4 +13,5 @@ six==1.15.0
 sqlparse==0.3.1
 toml==0.10.1
 wrapt==1.12.1
-djangorestframework-jwt==1.11.0
+#djangorestframework-jwt==1.11.0
+djangorestframework_simplejwt

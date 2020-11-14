@@ -1,14 +1,16 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from django.http.response import JsonResponse, HttpResponseRedirect
+
 from rest_framework.decorators import api_view
-from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
-from rest_framework import status
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from tcapi.models import User, Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, UserSerializerWithToken, PostsSerializer, CommentRepliesSerializer, PostReactionsSerializers
+
 
 
 @api_view(['GET'])
@@ -45,6 +47,35 @@ def user_list(request):
         twitterhandle = request.GET.get("twitterhandle", None)
         if twitterhandle is not None:
             users = users.filter(twitterhandle__icontains=twitterhandle)
+
+        users_serializer = UserSerializer(users, many=True)
+        return JsonResponse(users_serializer.data, safe=False)
+        # 'safe=False' for objects serialization
+    elif request.method == "PUT":
+        user_data = JSONParser().parse(request)
+        user_serializer = UserSerializer(data=user_data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JsonResponse(user_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        count = User.objects.all().delete()
+        return JsonResponse(
+            {"message": "{} Users were deleted successfully!".format(count[0])},
+            status=status.HTTP_204_NO_CONTENT,
+        )
+
+@api_view(["GET", "PUT", "DELETE"])
+def all_users_by_email(request):
+    """
+    This view gets all user's stored in the database by their email.
+    """
+    if request.method == "GET":
+        users = User.objects.all()
+
+        email = request.GET.get("email", None)
+        if email is not None:
+            users = users.filter(email__icontains=email)
 
         users_serializer = UserSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)

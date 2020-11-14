@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from tcapi.models import User, Posts, PostReactions, CommentReplies
-
-from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
+from tcapi.models import Posts, PostReactions, CommentReplies
 
+# "userid", "twitterhandle", 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("userid", "twitterhandle", "email")
+        fields = ("email")
+        
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 

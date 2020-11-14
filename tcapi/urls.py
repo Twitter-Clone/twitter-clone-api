@@ -1,7 +1,8 @@
 from django.conf.urls import url
+from django.urls import path
 from tcapi import views
 from .views import current_user, UserList
-from django.urls import path, include
+
 
 urlpatterns = [
     url(r"^api/users", views.user_list),

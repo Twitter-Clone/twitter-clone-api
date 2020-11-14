@@ -8,8 +8,8 @@ WORKDIR /
 ADD . /
 
 RUN pip install --upgrade pip
+RUN pip install pipenv
 RUN pipenv install
-RUN pipenv shell
 
 EXPOSE 8000
 

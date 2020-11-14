@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.http.response import JsonResponse, HttpResponseRedirect
+from django.http.response import JsonResponse
 
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
@@ -8,7 +8,7 @@ from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from tcapi.models import User, Posts, PostReactions, CommentReplies
+from tcapi.models import Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, UserSerializerWithToken, PostsSerializer, CommentRepliesSerializer, PostReactionsSerializers
 
 

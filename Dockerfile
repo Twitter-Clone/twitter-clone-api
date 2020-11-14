@@ -8,7 +8,8 @@ WORKDIR /
 ADD . /
 
 RUN pip install --upgrade pip
-RUN pip3 install -r requirements.txt
+RUN pipenv install
+RUN pipenv shell
 
 EXPOSE 8000
 

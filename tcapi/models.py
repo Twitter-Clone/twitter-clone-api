@@ -1,17 +1,5 @@
 from django.db import models
-
-
-# Create your models here.
-class User(models.Model):
-    """
-    Users table
-    """
-
-    userid = models.IntegerField(blank=False, default="")
-    twitterhandle = models.CharField(max_length=15, blank=False, default="")
-    email = models.EmailField(max_length=254, blank=False, default="")
-    password = models.CharField(max_length=128, blank=False, default="")
-
+from django.conf import settings
 
 class Posts(models.Model):
     """
@@ -22,7 +10,7 @@ class Posts(models.Model):
     tweet = models.CharField(max_length=280, blank=False, default="")
 
     # Foreign key to Users table
-    userid = models.ForeignKey(User, on_delete=models.CASCADE)
+    userid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
 class PostReactions(models.Model):

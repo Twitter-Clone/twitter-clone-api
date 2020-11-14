@@ -5,7 +5,7 @@ from .views import current_user, UserList
 
 
 urlpatterns = [
-    path('^current_user/', current_user),
+    path('current_user/', current_user),
     path('users/', UserList.as_view()),
     #url(r"^api/users", views.user_list),
     #url(r"^api/users/(?P<pk>[0-9]+)$", views.user_detail),

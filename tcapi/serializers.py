@@ -8,7 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ("email", "username")
 
-
 class UserSerializerWithToken(serializers.ModelSerializer):
 
     token = serializers.SerializerMethodField()
@@ -37,7 +36,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
-        fields = ("postid", "tweet", "userid")
+        fields = ("postid", "tweet", "userid_i")
 
 
 class PostReactionsSerializers(serializers.ModelSerializer):

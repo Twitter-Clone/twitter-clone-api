@@ -147,19 +147,22 @@ def tweet_list(request):
 
 @api_view(["GET", "PUT", "DELETE"])
 def tweet_detail(request, pk):
-    # find post by pk (id)
-    try:
-        #post = Posts.objects.get(pk=pk)
-        return JsonResponse(
-            {"message": "This is working!"}, status=status.HTTP_201_CREATED
-        )
-    except Posts.DoesNotExist:
-        return JsonResponse(
-            {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
-        )
 
     # GET / PUT / DELETE
     if request.method == "GET":
+        # find post by pk (id)
+        post = True
+        try:
+            #post = Posts.objects.get(pk=pk)
+            return JsonResponse(
+                {"message": "This is working!"}, status=status.HTTP_201_CREATED
+            )
+        except Posts.DoesNotExist:
+            return JsonResponse(
+                {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
         post_serializer = PostsSerializer(post)
         return JsonResponse(post_serializer.data)
 

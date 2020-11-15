@@ -39,7 +39,7 @@ class UserList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET", "PUT", "DELETE"])
+@api_view(["GET", "POST", "DELETE"])
 def user_list(request):
     if request.method == "GET":
         users = User.objects.all()

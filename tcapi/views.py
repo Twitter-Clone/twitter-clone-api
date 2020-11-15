@@ -145,35 +145,35 @@ def tweet_list(request):
         )
 
 
-# @api_view(["GET", "PUT", "DELETE"])
-# def tweet_detail(request, pk):
+@api_view(["GET", "PUT", "DELETE"])
+def tweet_detail(request, pk):
 
-#     # GET / PUT / DELETE
-#     if request.method == "GET":
-#     #     # find post by pk (id)
-#     #     post = True
-#     #     try:
-#     #         #post = Posts.objects.get(pk=pk)
-#     #         return JsonResponse(
-#     #             {"message": "This is working!"}, status=status.HTTP_201_CREATED
-#     #         )
-#     #     except Posts.DoesNotExist:
-#     #         return JsonResponse(
-#     #             {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
-#     #         )
+    # GET / PUT / DELETE
+    if request.method == "GET":
+    #     # find post by pk (id)
+    #     post = True
+    #     try:
+    #         #post = Posts.objects.get(pk=pk)
+    #         return JsonResponse(
+    #             {"message": "This is working!"}, status=status.HTTP_201_CREATED
+    #         )
+    #     except Posts.DoesNotExist:
+    #         return JsonResponse(
+    #             {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
+    #         )
 
 
-#     #     post_serializer = PostsSerializer(post)
-#     #     return JsonResponse(post_serializer.data)
+    #     post_serializer = PostsSerializer(post)
+    #     return JsonResponse(post_serializer.data)
 
-#     # if request.method == "PUT":
-#     #     post_data = JSONParser().parse(request)
-#     #     post_serializer = PostsSerializer(post, data=post_data)
-#     #     if post_serializer.is_valid():
-#     #         post_serializer.save()
-#     #         return JsonResponse(post_serializer.data)
-#     #     return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-#         return "This is working"
+    # if request.method == "PUT":
+    #     post_data = JSONParser().parse(request)
+    #     post_serializer = PostsSerializer(post, data=post_data)
+    #     if post_serializer.is_valid():
+    #         post_serializer.save()
+    #         return JsonResponse(post_serializer.data)
+    #     return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return "This is working"
 
 
 @api_view(["GET", "PUT", "DELETE"])

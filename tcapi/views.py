@@ -134,7 +134,7 @@ def tweet_list(request):
         if posts_serializer.is_valid():
             posts_serializer.save()
             return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
-        return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+ status=status.HTTP_400_BAD_REQUEST)        return JsonResponse(posts_serializer.errors,
     elif request.method == "DELETE":
         count = Posts.objects.all().delete()
         return JsonResponse(
@@ -147,7 +147,10 @@ def tweet_list(request):
 def tweet_detail(request, pk):
     # find post by pk (id)
     try:
-        post = Posts.objects.get(pk=pk)
+        #post = Posts.objects.get(pk=pk)
+        return JsonResponse(
+            {"message:" "This is working"}, status=status.HTTP_204_NO_CONTENT
+        )
     except Posts.DoesNotExist:
         return JsonResponse(
             {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND

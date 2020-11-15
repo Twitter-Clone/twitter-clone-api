@@ -39,7 +39,7 @@ class UserList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(["GET", "POST", "DELETE"])
+@api_view(["GET", "PUT", "DELETE"])
 def user_list(request):
     if request.method == "GET":
         users = User.objects.all()
@@ -51,7 +51,7 @@ def user_list(request):
         users_serializer = UserSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)
         # 'safe=False' for objects serialization
-    elif request.method == "POST":
+    elif request.method == "PUT":
         user_data = JSONParser().parse(request)
         user_serializer = UserSerializer(data=user_data)
         if user_serializer.is_valid():

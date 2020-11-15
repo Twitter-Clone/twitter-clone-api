@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 from tcapi.models import Posts, PostReactions, CommentReplies
 
 class UserSerializer(serializers.ModelSerializer):
+    incoming_data = serializers.JSONField() 
     class Meta:
         model = User
-        fields = ("email", "username")
+        #fields = ("email", "username")
+        fields = ('incoming_data',)
 
 
 class UserSerializerWithToken(serializers.ModelSerializer):

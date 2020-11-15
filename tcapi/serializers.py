@@ -37,7 +37,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
-        fields = ("postid", "tweet", "userid_id")
+        fields = ("postid", "tweet", "userid")
 
 
 class PostReactionsSerializers(serializers.ModelSerializer):

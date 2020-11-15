@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.http import request
+
 
 class Posts(models.Model):
     """
@@ -11,7 +11,7 @@ class Posts(models.Model):
     tweet = models.CharField(max_length=280, blank=False, default="")
 
     # Foreign key to Users table
-    userid = models.ForeignKey(request.users, on_delete=models.CASCADE)
+    userid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 
 class PostReactions(models.Model):

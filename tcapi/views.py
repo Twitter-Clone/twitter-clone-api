@@ -122,27 +122,28 @@ def user_detail(request, pk):
 @api_view(["GET", "PUT", "DELETE"])
 def tweet_list(request):
     if request.method == "GET":
-        tweets = Posts.objects.all()
+    #     tweets = Posts.objects.all()
 
-        tweet = request.GET.get("tweet", None)
-        if tweet is not None:
-            tweets = tweets.filter(tweet__icontains=tweet)
+    #     tweet = request.GET.get("tweet", None)
+    #     if tweet is not None:
+    #         tweets = tweets.filter(tweet__icontains=tweet)
 
-        posts_serializer = PostsSerializer(tweets, many=True)
-        return JsonResponse(posts_serializer.data, safe=False)
-    elif request.method == "PUT":
-        tweets_data = JSONParser().parse(request)
-        posts_serializer = PostsSerializer(data=tweets_data)
-        if posts_serializer.is_valid():
-            posts_serializer.save()
-            return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
-        return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == "DELETE":
-        count = Posts.objects.all().delete()
-        return JsonResponse(
-            {"message": "{} Posts were deleted successfully!".format(count[0])},
-            status=status.HTTP_204_NO_CONTENT,
-        )
+    #     posts_serializer = PostsSerializer(tweets, many=True)
+    #     return JsonResponse(posts_serializer.data, safe=False)
+    # elif request.method == "PUT":
+    #     tweets_data = JSONParser().parse(request)
+    #     posts_serializer = PostsSerializer(data=tweets_data)
+    #     if posts_serializer.is_valid():
+    #         posts_serializer.save()
+    #         return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
+    #     return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # elif request.method == "DELETE":
+    #     count = Posts.objects.all().delete()
+    #     return JsonResponse(
+    #         {"message": "{} Posts were deleted successfully!".format(count[0])},
+    #         status=status.HTTP_204_NO_CONTENT,
+    #     )
+        return "This is working"
 
 
 @api_view(["GET", "PUT", "DELETE"])

@@ -11,6 +11,8 @@ from rest_framework.views import APIView
 from tcapi.models import Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, UserSerializerWithToken, PostsSerializer, CommentRepliesSerializer, PostReactionsSerializers
 
+
+
 @api_view(['GET'])
 def current_user(request):
     """
@@ -42,9 +44,9 @@ def user_list(request):
     if request.method == "GET":
         users = User.objects.all()
 
-        username = request.GET.get("username", None)
-        if username is not None:
-            users = users.filter(username__icontains=username)
+        twitterhandle = request.GET.get("twitterhandle", None)
+        if twitterhandle is not None:
+            users = users.filter(twitterhandle__icontains=twitterhandle)
 
         users_serializer = UserSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)
@@ -134,7 +136,7 @@ def tweet_list(request):
         if posts_serializer.is_valid():
             posts_serializer.save()
             return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
- status=status.HTTP_400_BAD_REQUEST)        return JsonResponse(posts_serializer.errors,
+        return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == "DELETE":
         count = Posts.objects.all().delete()
         return JsonResponse(
@@ -149,7 +151,7 @@ def tweet_detail(request, pk):
     try:
         #post = Posts.objects.get(pk=pk)
         return JsonResponse(
-            {"message:" "This is working"}, status=status.HTTP_204_NO_CONTENT
+            {"message": "This is working!"}, status=status.HTTP_201_CREATED
         )
     except Posts.DoesNotExist:
         return JsonResponse(

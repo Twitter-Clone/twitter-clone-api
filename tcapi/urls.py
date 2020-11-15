@@ -7,6 +7,7 @@ from .views import current_user, UserList
 urlpatterns = [
     path('current_user/', current_user),
     path('users/', UserList.as_view()),
+    path('users/', views.user_list),
     url(r"^api/posts", views.tweet_list),
     url(r"^api/individualposts/(?P<pk>[0-9]+)$", views.tweet_detail),
     url(r"^api/postreactions", views.postreactions_list),

@@ -44,9 +44,9 @@ def user_list(request):
     if request.method == "GET":
         users = User.objects.all()
 
-        twitterhandle = request.GET.get("twitterhandle", None)
-        if twitterhandle is not None:
-            users = users.filter(twitterhandle__icontains=twitterhandle)
+        username = request.GET.get("username", None)
+        if username is not None:
+            users = users.filter(username__icontains=username)
 
         users_serializer = UserSerializer(users, many=True)
         return JsonResponse(users_serializer.data, safe=False)

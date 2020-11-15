@@ -143,7 +143,9 @@ def tweet_list(request):
     #         {"message": "{} Posts were deleted successfully!".format(count[0])},
     #         status=status.HTTP_204_NO_CONTENT,
     #     )
-        return "This is working"
+        return JsonResponse({
+            "message":"This is from tweet_list"
+        },status=status.HTTP_206_PARTIAL_CONTENT)
 
 
 @api_view(["GET", "PUT", "DELETE"])
@@ -174,7 +176,9 @@ def tweet_detail(request, pk):
     #         post_serializer.save()
     #         return JsonResponse(post_serializer.data)
     #     return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        return "This is working"
+        return JsonResponse({
+            "message": "This is from tweet_detail"
+        }, status=status.HTTP_206_PARTIAL_CONTENT)
 
 
 @api_view(["GET", "PUT", "DELETE"])

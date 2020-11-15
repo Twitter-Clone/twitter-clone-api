@@ -153,6 +153,7 @@ REST_FRAMEWORK = {
 #CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    'http://159.89.135.61'
 )
 
 JWT_AUTH = {

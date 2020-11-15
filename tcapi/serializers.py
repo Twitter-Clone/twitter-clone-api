@@ -7,8 +7,8 @@ from tcapi.models import Posts, PostReactions, CommentReplies
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("email", "userid", "twitterhandle")
- 
+        fields = ("email", "username")
+
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 
@@ -33,7 +33,7 @@ class UserSerializerWithToken(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('token', 'email', 'password')
+        fields = ('token', 'username', 'password')
 
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:

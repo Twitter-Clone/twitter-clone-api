@@ -11,8 +11,6 @@ from rest_framework.views import APIView
 from tcapi.models import Posts, PostReactions, CommentReplies
 from tcapi.serializers import UserSerializer, UserSerializerWithToken, PostsSerializer, CommentRepliesSerializer, PostReactionsSerializers
 
-
-
 @api_view(['GET'])
 def current_user(request):
     """

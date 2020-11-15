@@ -153,33 +153,25 @@ def tweet_detail(request, pk):
 
     # GET / PUT / DELETE
     if request.method == "GET":
-    #     # find post by pk (id)
-    #     post = True
-    #     try:
-    #         #post = Posts.objects.get(pk=pk)
-    #         return JsonResponse(
-    #             {"message": "This is working!"}, status=status.HTTP_201_CREATED
-    #         )
-    #     except Posts.DoesNotExist:
-    #         return JsonResponse(
-    #             {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
-    #         )
+        # find post by pk (id)
+        try:
+            post = Posts.objects.get(pk=pk)
+        except Posts.DoesNotExist:
+            return JsonResponse(
+                {"message": "The post does not exist"}, status=status.HTTP_404_NOT_FOUND
+            )
 
 
-    #     post_serializer = PostsSerializer(post)
-    #     return JsonResponse(post_serializer.data)
+        post_serializer = PostsSerializer(post)
+        return JsonResponse(post_serializer.data)
 
-    # if request.method == "PUT":
-    #     post_data = JSONParser().parse(request)
-    #     post_serializer = PostsSerializer(post, data=post_data)
-    #     if post_serializer.is_valid():
-    #         post_serializer.save()
-    #         return JsonResponse(post_serializer.data)
-    #     return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        return JsonResponse({
-            "message": "This is from tweet_detail"
-        }, status=status.HTTP_206_PARTIAL_CONTENT)
-
+    if request.method == "PUT":
+        post_data = JSONParser().parse(request)
+        post_serializer = PostsSerializer(post, data=post_data)
+        if post_serializer.is_valid():
+            post_serializer.save()
+            return JsonResponse(post_serializer.data)
+        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["GET", "PUT", "DELETE"])
 def postreactions_list(request):

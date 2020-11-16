@@ -9,7 +9,7 @@ class Posts(models.Model):
 
     postid = models.IntegerField(blank=False, default="")
     tweet = models.CharField(max_length=280, blank=False, default="")
-    userid_id = models.IntegerField(blank=False) 
+    userid_id = models.IntegerField(blank=False, default="") 
 
     # Foreign key to Users table
     #userid = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

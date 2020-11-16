@@ -147,6 +147,16 @@ def tweet_list(request):
             "message":"This is from tweet_list"
         },status=status.HTTP_206_PARTIAL_CONTENT)
 
+@api_view(["POST", "DELETE"])
+def post_tweet_auth_user(request):
+    if request.method == "POST":
+        post_tweet = JSONParser().parse(request)
+        posts_serializer = PostsSerializer(data=post_tweet)
+        if posts_serializer.is_valid():
+            posts_serializer.save()
+            return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(["GET", "PUT", "DELETE"])
 def tweet_detail(request, pk):
@@ -164,14 +174,6 @@ def tweet_detail(request, pk):
 
         post_serializer = PostsSerializer(post)
         return JsonResponse(post_serializer.data)
-
-    if request.method == "PUT":
-        post_data = JSONParser().parse(request)
-        post_serializer = PostsSerializer(post, data=post_data)
-        if post_serializer.is_valid():
-            post_serializer.save()
-            return JsonResponse(post_serializer.data)
-        return JsonResponse(post_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(["GET", "PUT", "DELETE"])
 def postreactions_list(request):

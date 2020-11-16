@@ -50,8 +50,8 @@ jobs:
         run: pip install -r requirements.txt
       - name: Make migrations
         run: python manage.py makemigrations
-      - name: Run Migrations
-        run: python manage.py migrate
+      #- name: Run Migrations
+       # run: python manage.py migrate
       - name: Run Test 
         run: python manage.py test --keepdb --parallel -v 2
 

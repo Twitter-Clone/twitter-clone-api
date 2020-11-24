@@ -39,6 +39,7 @@ class UserList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Get, put, or delete all users
 @api_view(["GET", "PUT", "DELETE"])
 def user_list(request):
     if request.method == "GET":
@@ -65,6 +66,7 @@ def user_list(request):
             status=status.HTTP_204_NO_CONTENT,
         )
 
+# search users by email address
 @api_view(["GET", "PUT", "DELETE"])
 def all_users_by_email(request):
     """
@@ -94,7 +96,7 @@ def all_users_by_email(request):
             status=status.HTTP_204_NO_CONTENT,
         )
 
-
+# Find a user by their ID
 @api_view(["GET", "PUT", "DELETE"])
 def user_detail(request, pk):
     # find user by pk (id)
@@ -118,7 +120,7 @@ def user_detail(request, pk):
             return JsonResponse(user_serializer.data)
         return JsonResponse(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# Get Put or Delete all tweets
 @api_view(["GET", "PUT", "DELETE"])
 def tweet_list(request):
     if request.method == "GET":
@@ -147,6 +149,8 @@ def tweet_list(request):
             "message":"This is from tweet_list"
         },status=status.HTTP_206_PARTIAL_CONTENT)
 
+
+# user authorization
 @api_view(["POST", "DELETE"])
 def post_tweet_auth_user(request):
     if request.method == "POST":
@@ -157,7 +161,7 @@ def post_tweet_auth_user(request):
             return JsonResponse(posts_serializer.data, status=status.HTTP_201_CREATED)
         return JsonResponse(posts_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+# Get a specific tweet by username
 @api_view(["GET", "PUT", "DELETE"])
 def tweet_detail(request, pk):
 
@@ -175,6 +179,7 @@ def tweet_detail(request, pk):
         post_serializer = PostsSerializer(post)
         return JsonResponse(post_serializer.data)
 
+# Get all post reactions
 @api_view(["GET", "PUT", "DELETE"])
 def postreactions_list(request):
     if request.method == "GET":
@@ -210,7 +215,7 @@ def postreactions_list(request):
             status=status.HTTP_204_NO_CONTENT,
         )
 
-
+# get a post reaction by id
 @api_view(["GET", "PUT", "DELETE"])
 def postreactions_detail(request, pk):
     # find postreaction by pk (id)
@@ -238,7 +243,7 @@ def postreactions_detail(request, pk):
             postreactions_serializer.errors, status=status.HTTP_400_BAD_REQUEST
         )
 
-
+# get a list of all comment replies
 @api_view(["GET", "PUT", "DELETE"])
 def commentreplies_list(request):
     if request.method == "GET":
@@ -268,7 +273,7 @@ def commentreplies_list(request):
             status=status.HTTP_204_NO_CONTENT,
         )
 
-
+# get a specific comment reply by ID
 @api_view(["GET", "PUT", "DELETE"])
 def commentreplies_detail(request, pk):
     # find commentreplies by pk (id)
